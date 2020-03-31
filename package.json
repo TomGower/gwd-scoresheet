@@ -4,9 +4,8 @@
   "description": "A scoresheet for Geeks Who Drink",
   "main": "index.js",
   "scripts": {
-    "build": "webpack -d --watch",
     "build-dev": "webpack -d",
-    "start": "nodemon server/server.js"
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
