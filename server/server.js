@@ -1,6 +1,9 @@
 const express = require("express");
 const bodyParser = require('body-parser');
-const port = 2017;
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 2017;
+}
 
 let app = express();
 
