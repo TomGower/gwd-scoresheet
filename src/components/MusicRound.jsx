@@ -16,30 +16,29 @@ const MusicRound = ({round, updater, answers, scores}) => {
   
   return (
     <div>
-      <strong>Round {round}</strong><br />
-      <br />
-      Question 1 <br />
+      <h4>Round {round}</h4>
+      <strong>Question 1</strong><br />
       <span style={{color: holder.q1}}>Title</span>: <input className='answer' id={`round${round}answer q1a`} defaultValue={answers[0]}></input><input type="checkbox" id={`round${round} question1`}></input><label htmlFor="question1">Check if correct</label><br />
       <span style={{color: holder.q1}}>Artist</span>: <input className='answer' id={`round${round}answer q1b`} defaultValue={answers[1]}></input><input type="checkbox" id={`round${round} question1`}></input><label htmlFor="question1">Check if correct</label><br />
-      Question 2 <br />
+      <strong>Question 2</strong><br />
       <span style={{color: holder.q1}}>Title</span>: <input className='answer' id={`round${round}answer q2a`} defaultValue={answers[2]}></input><input type="checkbox" id={`round${round} question1`}></input><label htmlFor="question1">Check if correct</label><br />
       <span style={{color: holder.q1}}>Artist</span>: <input className='answer' id={`round${round}answer q2b`} defaultValue={answers[3]}></input><input type="checkbox" id={`round${round} question1`}></input><label htmlFor="question1">Check if correct</label><br />
-      Question 3 <br />
+      <strong>Question 3</strong><br />
       <span style={{color: holder.q1}}>Title</span>: <input className='answer' id={`round${round}answer q3a`} defaultValue={answers[4]}></input><input type="checkbox" id={`round${round} question1`}></input><label htmlFor="question1">Check if correct</label><br />
       <span style={{color: holder.q1}}>Artist</span>: <input className='answer' id={`round${round}answer q3b`} defaultValue={answers[5]}></input><input type="checkbox" id={`round${round} question1`}></input><label htmlFor="question1">Check if correct</label><br />
-      Question 4 <br />
+      <strong>Question 4</strong><br />
       <span style={{color: holder.q1}}>Title</span>: <input className='answer' id={`round${round}answer q4a`} defaultValue={answers[6]}></input><input type="checkbox" id={`round${round} question1`}></input><label htmlFor="question1">Check if correct</label><br />
       <span style={{color: holder.q1}}>Artist</span>: <input className='answer' id={`round${round}answer q4b`} defaultValue={answers[7]}></input><input type="checkbox" id={`round${round} question1`}></input><label htmlFor="question1">Check if correct</label><br />
-      Question 5 <br />
+      <strong>Question 5</strong><br />
       <span style={{color: holder.q1}}>Title</span>: <input className='answer' id={`round${round}answer q5a`} defaultValue={answers[8]}></input><input type="checkbox" id={`round${round} question1`}></input><label htmlFor="question1">Check if correct</label><br />
       <span style={{color: holder.q1}}>Artist</span>: <input className='answer' id={`round${round}answer q5b`} defaultValue={answers[9]}></input><input type="checkbox" id={`round${round} question1`}></input><label htmlFor="question1">Check if correct</label><br />
-      Question 6 <br />
+      <strong>Question 6</strong><br />
       <span style={{color: holder.q1}}>Title</span>: <input className='answer' id={`round${round}answer q6a`} defaultValue={answers[10]}></input><input type="checkbox" id={`round${round} question1`}></input><label htmlFor="question1">Check if correct</label><br />
       <span style={{color: holder.q1}}>Artist</span>: <input className='answer' id={`round${round}answer q6b`} defaultValue={answers[11]}></input><input type="checkbox" id={`round${round} question1`}></input><label htmlFor="question1">Check if correct</label><br />
-      Question 7 <br />
+      <strong>Question 7</strong><br />
       <span style={{color: holder.q1}}>Title</span>: <input className='answer' id={`round${round}answer q7a`} defaultValue={answers[12]}></input><input type="checkbox" id={`round${round} question1`}></input><label htmlFor="question1">Check if correct</label><br />
       <span style={{color: holder.q1}}>Artist</span>: <input className='answer' id={`round${round}answer q7b`} defaultValue={answers[13]}></input><input type="checkbox" id={`round${round} question1`}></input><label htmlFor="question1">Check if correct</label><br />
-      Question 8 <br />
+      <strong>Question 8</strong><br />
       <span style={{color: holder.q1}}>Title</span>: <input className='answer' id={`round${round}answer q8a`} defaultValue={answers[14]}></input><input type="checkbox" id={`round${round} question1`}></input><label htmlFor="question1">Check if correct</label><br />
       <span style={{color: holder.q1}}>Artist</span>: <input className='answer' id={`round${round}answer q8b`} defaultValue={answers[15]}></input><input type="checkbox" id={`round${round} question1`}></input><label htmlFor="question1">Check if correct</label><br />
       <br />
