@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DisplayRound = ({round, updater, answers, scores}) => {
+const RoundOne = ({round, updater, answers, scores}) => {
   let holder = {};
   for (let i = 0; i < scores.length; i++) {
     let thisVar = `q${i+1}`;
@@ -17,7 +17,7 @@ const DisplayRound = ({round, updater, answers, scores}) => {
     <div>
       <h4>Round {round}</h4>
       <strong>Question 1</strong><br />
-      <span style={{color: holder.q1}}>Answer</span>: <input className='answer' id={`round${round}answer q2`} defaultValue={answers[1]}></input><input type="checkbox" id={`round${round} question2`}></input><label htmlFor="question1">Check if correct</label><br />
+      <span style={{color: holder.q1}}>Answer</span>: <input className='answer' id={`round${round}answer q1`} defaultValue={answers[0]}></input><input type="checkbox" id={`round${round} question2`}></input><label htmlFor="question1">Check if correct</label><br />
       <strong>Question 2</strong><br />
       <span style={{color: holder.q2}}>Answer</span>: <input className='answer' id={`round${round}answer q2`} defaultValue={answers[1]}></input><input type="checkbox" id={`round${round} question2`}></input><label htmlFor="question2">Check if correct</label><br />
       <strong>Question 3</strong><br />
@@ -38,6 +38,4 @@ const DisplayRound = ({round, updater, answers, scores}) => {
   )
 }
 
-const MemodDisplayRound = React.memo(DisplayRound);
-
-export default MemodDisplayRound;
+export default RoundOne;
