@@ -27,7 +27,6 @@ const RandomRound = function({updater, round, answers, scores}) {
         <span style={{color: holder.q5}}>Answer A</span>: <input className='answer' id={`round${round}answer q4a`} defaultValue={answers[4]}></input><input type="checkbox" id={`round${round} question4a`}></input><label htmlFor="question4">Check if correct</label><br />
         <span style={{color: holder.q6}}>Answer B</span>: <input className='answer' id={`round${round}answer q4b`} defaultValue={answers[5]}></input><input type="checkbox" id={`round${round} question4b`}></input><label htmlFor="question4">Check if correct</label><br />
         <span style={{color: holder.q7}}>Answer C</span>: <input className='answer' id={`round${round}answer q4c`} defaultValue={answers[6]}></input><input type="checkbox" id={`round${round} question4c`}></input><label htmlFor="question4">Check if correct</label><br />
-        <strong>Question 5</strong><br />
         <Question thisColor={holder.q8} round={round} answer={answers[7]} number={5}/>
         <strong>Question 6</strong><br />
         <span style={{color: holder.q9}}>Answer A</span>: <input className='answer' id={`round${round}answer q6a`} defaultValue={answers[8]}></input><input type="checkbox" id={`round${round} question6a`}></input><label htmlFor="question4">Check if correct</label><br />
