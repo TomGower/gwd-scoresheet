@@ -1,18 +1,20 @@
+/* eslint-disable import/extensions */
 /* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Joker from './components/Joker';
-import RoundOne from './components/Round1';
-import MusicRound from './components/Round2';
-import RoundThree from './components/Round3';
-import RoundFour from './components/Round4';
-import RoundFive from './components/Round5';
-import RoundSix from './components/Round6';
-import RoundSeven from './components/Round7';
-import RandomRound from './components/Round8';
+import Joker from './components/Joker.jsx';
+import SpecialRound from './components/SpecialRound.jsx';
+import RoundOne from './components/Round1.jsx';
+import MusicRound from './components/Round2.jsx';
+import RoundThree from './components/Round3.jsx';
+import RoundFour from './components/Round4.jsx';
+import RoundFive from './components/Round5.jsx';
+import RoundSix from './components/Round6.jsx';
+import RoundSeven from './components/Round7.jsx';
+import RandomRound from './components/Round8.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -20,6 +22,7 @@ class App extends React.Component {
     this.state = {
       currentPage: 1,
       score: 0,
+      r1special: false,
       r1scores: Array(8).fill(null),
       r1answers: Array(8).fill(''),
       r1score: 0,
@@ -30,15 +33,19 @@ class App extends React.Component {
       r3scores: Array(8).fill(null),
       r3answers: Array(8).fill(''),
       r3score: 0,
+      r4special: false,
       r4scores: Array(8).fill(null),
       r4answers: Array(8).fill(''),
       r4score: 0,
+      r5special: false,
       r5scores: Array(8).fill(null),
       r5answers: Array(8).fill(''),
       r5score: 0,
+      r6special: false,
       r6scores: Array(8).fill(null),
       r6answers: Array(8).fill(''),
       r6score: 0,
+      r7special: false,
       r7scores: Array(8).fill(null),
       r7answers: Array(8).fill(''),
       r7score: 0,
@@ -51,7 +58,8 @@ class App extends React.Component {
     this.updateScore = this.updateScore.bind(this);
     this.pickJoker = this.pickJoker.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.r3check = this.r3check.bind(this);
+    this.specialRoundCheck = this.specialRoundCheck.bind(this);
+    // this.r3check = this.r3check.bind(this);
   }
 
   componentDidMount() {
@@ -115,6 +123,31 @@ class App extends React.Component {
     }
   }
 
+  specialRoundCheck() {
+    const specialRound = document.querySelectorAll('input[name=\'bonus\']');
+    // eslint-disable-next-line no-console
+    console.log(specialRound);
+    // console.log('checking special rounds');
+    for (let i = 0; i < specialRound.length; i += 1) {
+      if (specialRound[i].checked) {
+        let special = 0;
+        if (i === 0) {
+          special = 1;
+        } else {
+          special = 2 + i;
+        }
+        // eslint-disable-next-line no-console
+        console.log(`Round ${special} is a special round`);
+        this.setState({
+          [`r${special}special`]: true,
+          [`r${special}scores`]: Array(16).fill(null),
+          [`r${special}answers`]: Array(16).fill(''),
+        });
+      }
+    }
+  }
+
+  /*
   r3check() {
     const r3bonus = document.querySelector('#r3bonus');
     if (r3bonus.checked) {
@@ -125,6 +158,7 @@ class App extends React.Component {
       });
     }
   }
+  */
 
   handleClick(event) {
     this.setState({
@@ -155,6 +189,7 @@ class App extends React.Component {
           round={1}
           answers={this.state.r1answers}
           scores={this.state.r1scores}
+          bonus={this.state.r1special}
         />
       );
     } else if (currentPage === 2) {
@@ -183,6 +218,7 @@ class App extends React.Component {
           round={4}
           answers={this.state.r4answers}
           scores={this.state.r4scores}
+          bonus={this.state.r4special}
         />
       );
     } else if (currentPage === 5) {
@@ -192,6 +228,7 @@ class App extends React.Component {
           round={5}
           answers={this.state.r5answers}
           scores={this.state.r5scores}
+          bonus={this.state.r5special}
         />
       );
     } else if (currentPage === 6) {
@@ -201,6 +238,7 @@ class App extends React.Component {
           round={6}
           answers={this.state.r6answers}
           scores={this.state.r6scores}
+          bonus={this.state.r6special}
         />
       );
     } else if (currentPage === 7) {
@@ -210,6 +248,7 @@ class App extends React.Component {
           round={7}
           answers={this.state.r7answers}
           scores={this.state.r7scores}
+          bonus={this.state.r7special}
         />
       );
     } else if (currentPage === 8) {
@@ -234,12 +273,7 @@ class App extends React.Component {
         <hr />
         <Joker pickJoker={this.pickJoker} />
         <hr />
-        <div>Is tonight a special 16-point Round 3?</div>
-        <input type="checkbox" id="r3bonus" />
-        <label htmlFor="r3bonus">Check if it is.</label>
-        <br />
-        <div><button type="submit" id="jokerButton" onClick={this.r3check}>Make Round 3 a special 16-point round.</button></div>
-        <br />
+        <SpecialRound checkSpecialRound={this.specialRoundCheck} />
         <hr />
         {thisRound}
         <ul id="page-numbers">

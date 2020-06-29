@@ -2,9 +2,11 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/prop-types */
 import React from 'react';
+// eslint-disable-next-line import/extensions
+import Question from './Question.jsx';
 
-const DisplayRound = ({
-  round, updater, answers, scores,
+const NormalRound = ({
+  round, updater, answers, scores, bonus,
 }) => {
   const holder = {};
   for (let i = 0; i < scores.length; i += 1) {
@@ -18,33 +20,83 @@ const DisplayRound = ({
     }
   }
 
+  if (bonus) {
+    return (
+      <div>
+        <h4>Round {round}</h4>
+        <strong>Question 1</strong>
+        <br />
+        <span style={{ color: holder.q1 }}>First Answer</span>: <input className="answer" id={`round${round}answer q1a`} defaultValue={answers[0]} /><input type="checkbox" id={`round${round} question1`} /><label htmlFor="question1">Check if correct</label>
+        <br />
+        <span style={{ color: holder.q2 }}>Second Answer</span>: <input className="answer" id={`round${round}answer q1b`} defaultValue={answers[1]} /><input type="checkbox" id={`round${round} question1`} /><label htmlFor="question1">Check if correct</label>
+        <br />
+        <strong>Question 2</strong>
+        <br />
+        <span style={{ color: holder.q3 }}>First Answer</span>: <input className="answer" id={`round${round}answer q2a`} defaultValue={answers[2]} /><input type="checkbox" id={`round${round} question1`} /><label htmlFor="question1">Check if correct</label>
+        <br />
+        <span style={{ color: holder.q4 }}>Second Answer</span>: <input className="answer" id={`round${round}answer q2b`} defaultValue={answers[3]} /><input type="checkbox" id={`round${round} question1`} /><label htmlFor="question1">Check if correct</label>
+        <br />
+        <strong>Question 3</strong>
+        <br />
+        <span style={{ color: holder.q5 }}>First Answer</span>: <input className="answer" id={`round${round}answer q3a`} defaultValue={answers[4]} /><input type="checkbox" id={`round${round} question1`} /><label htmlFor="question1">Check if correct</label>
+        <br />
+        <span style={{ color: holder.q6 }}>Second Answer</span>: <input className="answer" id={`round${round}answer q3b`} defaultValue={answers[5]} /><input type="checkbox" id={`round${round} question1`} /><label htmlFor="question1">Check if correct</label>
+        <br />
+        <strong>Question 4</strong>
+        <br />
+        <span style={{ color: holder.q7 }}>First Answer</span>: <input className="answer" id={`round${round}answer q4a`} defaultValue={answers[6]} /><input type="checkbox" id={`round${round} question1`} /><label htmlFor="question1">Check if correct</label>
+        <br />
+        <span style={{ color: holder.q8 }}>Second Answer</span>: <input className="answer" id={`round${round}answer q4b`} defaultValue={answers[7]} /><input type="checkbox" id={`round${round} question1`} /><label htmlFor="question1">Check if correct</label>
+        <br />
+        <strong>Question 5</strong>
+        <br />
+        <span style={{ color: holder.q9 }}>First Answer</span>: <input className="answer" id={`round${round}answer q5a`} defaultValue={answers[8]} /><input type="checkbox" id={`round${round} question1`} /><label htmlFor="question1">Check if correct</label>
+        <br />
+        <span style={{ color: holder.q10 }}>Second Answer</span>: <input className="answer" id={`round${round}answer q5b`} defaultValue={answers[9]} /><input type="checkbox" id={`round${round} question1`} /><label htmlFor="question1">Check if correct</label>
+        <br />
+        <strong>Question 6</strong>
+        <br />
+        <span style={{ color: holder.q11 }}>First Answer</span>: <input className="answer" id={`round${round}answer q6a`} defaultValue={answers[10]} /><input type="checkbox" id={`round${round} question1`} /><label htmlFor="question1">Check if correct</label>
+        <br />
+        <span style={{ color: holder.q12 }}>Second Answer</span>: <input className="answer" id={`round${round}answer q6b`} defaultValue={answers[11]} /><input type="checkbox" id={`round${round} question1`} /><label htmlFor="question1">Check if correct</label>
+        <br />
+        <strong>Question 7</strong>
+        <br />
+        <span style={{ color: holder.q13 }}>First Answer</span>: <input className="answer" id={`round${round}answer q7a`} defaultValue={answers[12]} /><input type="checkbox" id={`round${round} question1`} /><label htmlFor="question1">Check if correct</label>
+        <br />
+        <span style={{ color: holder.q14 }}>Second Answer</span>: <input className="answer" id={`round${round}answer q7b`} defaultValue={answers[13]} /><input type="checkbox" id={`round${round} question1`} /><label htmlFor="question1">Check if correct</label>
+        <br />
+        <strong>Question 8</strong>
+        <br />
+        <span style={{ color: holder.q15 }}>First Answer</span>: <input className="answer" id={`round${round}answer q8a`} defaultValue={answers[14]} /><input type="checkbox" id={`round${round} question1`} /><label htmlFor="question1">Check if correct</label>
+        <br />
+        <span style={{ color: holder.q16 }}>Second Answer</span>: <input className="answer" id={`round${round}answer q8b`} defaultValue={answers[15]} /><input type="checkbox" id={`round${round} question1`} /><label htmlFor="question1">Check if correct</label>
+        <br />
+        <br />
+        <button value={round} onClick={updater} type="button">
+          CLICK TO UPDATE YOUR ROUND {round} ANSWERS AND SCORE
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div>
-      <h4>
-        Round {round}
-      </h4>
-      <strong>Question 1</strong><br />
-      <span style={{ color: holder.q1 }}>Answer</span>: <input className="answer" id={`round${round}answer q2`} defaultValue={answers[1]} /><input type="checkbox" id={`round${round} question2`} /><label htmlFor="question1">Check if correct</label><br />
-      <strong>Question 2</strong><br />
-      <span style={{ color: holder.q2 }}>Answer</span>: <input className="answer" id={`round${round}answer q2`} defaultValue={answers[1]} /><input type="checkbox" id={`round${round} question2`} /><label htmlFor="question2">Check if correct</label><br />
-      <strong>Question 3</strong><br />
-      <span style={{ color: holder.q3 }}>Answer</span>: <input className="answer" id={`round${round}answer q3`} defaultValue={answers[2]} /><input type="checkbox" id={`round${round} question3`} /><label htmlFor="question3">Check if correct</label><br />
-      <strong>Question 4</strong><br />
-      <span style={{ color: holder.q4 }}>Answer</span>: <input className="answer" id={`round${round}answer q4`} defaultValue={answers[3]} /><input type="checkbox" id={`round${round} question4`} /><label htmlFor="question4">Check if correct</label><br />
-      <strong>Question 5</strong><br />
-      <span style={{ color: holder.q5 }}>Answer</span>: <input className="answer" id={`round${round}answer q5`} defaultValue={answers[4]} /><input type="checkbox" id={`round${round} question5`} /><label htmlFor="question5">Check if correct</label><br />
-      <strong>Question 6</strong><br />
-      <span style={{ color: holder.q6 }}>Answer</span>: <input className="answer" id={`round${round}answer q6`} defaultValue={answers[5]} /><input type="checkbox" id={`round${round} question6`} /><label htmlFor="question6">Check if correct</label><br />
-      <strong>Question 7</strong><br />
-      <span style={{ color: holder.q7 }}>Answer</span>: <input className="answer" id={`round${round}answer q7`} defaultValue={answers[6]} /><input type="checkbox" id={`round${round} question7`} /><label htmlFor="question7">Check if correct</label><br />
-      <strong>Question 8</strong><br />
-      <span style={{ color: holder.q8 }}>Answer</span>: <input className="answer" id={`round${round}answer q8`} defaultValue={answers[7]} /><input type="checkbox" id={`round${round} question8`} /><label htmlFor="question8">Check if correct</label><br />
+      <h4>Round {round}</h4>
+      <Question thisColor={holder.q1} round={round} answer={answers[0]} number={1} />
+      <Question thisColor={holder.q2} round={round} answer={answers[1]} number={2} />
+      <Question thisColor={holder.q3} round={round} answer={answers[2]} number={3} />
+      <Question thisColor={holder.q4} round={round} answer={answers[3]} number={4} />
+      <Question thisColor={holder.q5} round={round} answer={answers[4]} number={5} />
+      <Question thisColor={holder.q6} round={round} answer={answers[5]} number={6} />
+      <Question thisColor={holder.q7} round={round} answer={answers[6]} number={7} />
+      <Question thisColor={holder.q8} round={round} answer={answers[7]} number={8} />
       <br />
-      <button value={round} onClick={updater} type="button">CLICK TO UPDATE YOUR ROUND {round} ANSWERS AND SCORE</button>
+      <button value={round} onClick={updater} type="button">
+        CLICK TO UPDATE YOUR ROUND {round} ANSWERS AND SCORE
+      </button>
     </div>
   );
 };
 
-const MemodDisplayRound = React.memo(DisplayRound);
-
-export default MemodDisplayRound;
+export default NormalRound;

@@ -2,7 +2,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
-import Question from './Question';
+// eslint-disable-next-line import/extensions
+import Question from './Question.jsx';
 
 const RoundThree = ({
   round, updater, answers, scores, bonus,

@@ -2,7 +2,8 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
-import Question from './Question';
+// eslint-disable-next-line import/extensions
+import Question from './Question.jsx';
 
 const RandomRound = ({
   updater, round, answers, scores,
