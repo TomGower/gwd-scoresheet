@@ -15,6 +15,7 @@ import RoundFive from './components/Round5.jsx';
 import RoundSix from './components/Round6.jsx';
 import RoundSeven from './components/Round7.jsx';
 import RandomRound from './components/Round8.jsx';
+import BonusQuestions from './components/BonusQuestions.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -59,7 +60,6 @@ class App extends React.Component {
     this.pickJoker = this.pickJoker.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.specialRoundCheck = this.specialRoundCheck.bind(this);
-    // this.r3check = this.r3check.bind(this);
   }
 
   componentDidMount() {
@@ -125,9 +125,6 @@ class App extends React.Component {
 
   specialRoundCheck() {
     const specialRound = document.querySelectorAll('input[name=\'bonus\']');
-    // eslint-disable-next-line no-console
-    console.log(specialRound);
-    // console.log('checking special rounds');
     for (let i = 0; i < specialRound.length; i += 1) {
       if (specialRound[i].checked) {
         let special = 0;
@@ -136,8 +133,6 @@ class App extends React.Component {
         } else {
           special = 2 + i;
         }
-        // eslint-disable-next-line no-console
-        console.log(`Round ${special} is a special round`);
         this.setState({
           [`r${special}special`]: true,
           [`r${special}scores`]: Array(16).fill(null),
@@ -146,19 +141,6 @@ class App extends React.Component {
       }
     }
   }
-
-  /*
-  r3check() {
-    const r3bonus = document.querySelector('#r3bonus');
-    if (r3bonus.checked) {
-      this.setState({
-        r3special: true,
-        r3scores: Array(16).fill(null),
-        r3answers: Array(16).fill(''),
-      });
-    }
-  }
-  */
 
   handleClick(event) {
     this.setState({
@@ -268,7 +250,7 @@ class App extends React.Component {
         <hr />
         <h4>
           Your Current Score is
-          { this.state.score}
+          {` ${this.state.score}`}
         </h4>
         <hr />
         <Joker pickJoker={this.pickJoker} />
@@ -280,48 +262,7 @@ class App extends React.Component {
           {renderPageNumbers}
         </ul>
         <hr />
-        <strong>Bonus Questions</strong>
-        <br />
-        Round 1 Bonus Question
-        <br />
-        <span>Answer</span>
-        {': '}
-        <input className="answer" />
-        <input type="checkbox" id="bonusquestion1" />
-        <label htmlFor="bonusquestion1">Check if correct</label>
-        <br />
-        Round 3 Bonus Question
-        <br />
-        <span>Answer</span>
-        {': '}
-        <input className="answer" />
-        <input type="checkbox" id="bonusquestion3" />
-        <label htmlFor="bonusquestion3">Check if correct</label>
-        <br />
-        Round 4 Bonus Question
-        <br />
-        <span>Answer</span>
-        {': '}
-        <input className="answer" />
-        <input type="checkbox" id="bonusquestion4" />
-        <label htmlFor="bonusquestion4">Check if correct</label>
-        <br />
-        Round 6 Bonus Question
-        <br />
-        <span>Answer</span>
-        {': '}
-        <input className="answer" />
-        <input type="checkbox" id="bonusquestion6" />
-        <label htmlFor="bonusquestion6">Check if correct</label>
-        <br />
-        Round 8 Bonus Question
-        <br />
-        <span>Answer</span>
-        {': '}
-        <input className="answer" />
-        <input type="checkbox" id="bonusquestion8" />
-        <label htmlFor="bonusquestion8">Check if correct</label>
-        <br />
+        <BonusQuestions />
       </div>
     );
   }
