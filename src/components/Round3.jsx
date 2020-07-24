@@ -2,8 +2,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
-// eslint-disable-next-line import/extensions
-import Question from './Question.jsx';
+import Question from './Question';
 
 const RoundThree = ({
   updater, info,

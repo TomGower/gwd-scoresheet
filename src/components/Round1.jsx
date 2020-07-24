@@ -2,8 +2,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
-// eslint-disable-next-line import/extensions
-import Question from './Question.jsx';
+import Question from './Question';
 
 const RoundOne = ({
   updater, info,

@@ -2,19 +2,20 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import MusicQuestion from './MusicQuestion';
 
 const MusicRound = ({
   info, updater,
 }) => {
-  const holder = {};
+  const colors = {};
   for (let i = 0; i < info.scores.length; i += 1) {
-    const thisVar = `q${i + 1}`;
+    const current = `q${i + 1}`;
     if (parseInt(info.scores[i], 10) === 1) {
-      holder[thisVar] = 'green';
+      colors[current] = 'green';
     } else if (info.scores[i] === '') {
-      holder[thisVar] = 'black';
+      colors[current] = 'black';
     } else if (parseInt(info.scores[i], 10) === 0) {
-      holder[thisVar] = 'red';
+      colors[current] = 'red';
     }
   }
 
@@ -23,30 +24,70 @@ const MusicRound = ({
       <h4>
         Round {info.round}
       </h4>
-      <strong>Question 1</strong><br />
-      <span style={{ color: holder.q1 }}>Title</span>: <input className="answer" id={`round${info.round}answer q1a`} defaultValue={info.answers[0]} /><input type="checkbox" id={`round${info.round} question1`} /><label htmlFor="question1">Check if correct</label><br />
-      <span style={{ color: holder.q2 }}>Artist</span>: <input className="answer" id={`round${info.round}answer q1b`} defaultValue={info.answers[1]} /><input type="checkbox" id={`round${info.round} question1`} /><label htmlFor="question1">Check if correct</label><br />
-      <strong>Question 2</strong><br />
-      <span style={{ color: holder.q3 }}>Title</span>: <input className="answer" id={`round${info.round}answer q2a`} defaultValue={info.answers[2]} /><input type="checkbox" id={`round${info.round} question1`} /><label htmlFor="question1">Check if correct</label><br />
-      <span style={{ color: holder.q4 }}>Artist</span>: <input className="answer" id={`round${info.round}answer q2b`} defaultValue={info.answers[3]} /><input type="checkbox" id={`round${info.round} question1`} /><label htmlFor="question1">Check if correct</label><br />
-      <strong>Question 3</strong><br />
-      <span style={{ color: holder.q5 }}>Title</span>: <input className="answer" id={`round${info.round}answer q3a`} defaultValue={info.answers[4]} /><input type="checkbox" id={`round${info.round} question1`} /><label htmlFor="question1">Check if correct</label><br />
-      <span style={{ color: holder.q6 }}>Artist</span>: <input className="answer" id={`round${info.round}answer q3b`} defaultValue={info.answers[5]} /><input type="checkbox" id={`round${info.round} question1`} /><label htmlFor="question1">Check if correct</label><br />
-      <strong>Question 4</strong><br />
-      <span style={{ color: holder.q7 }}>Title</span>: <input className="answer" id={`round${info.round}answer q4a`} defaultValue={info.answers[6]} /><input type="checkbox" id={`round${info.round} question1`} /><label htmlFor="question1">Check if correct</label><br />
-      <span style={{ color: holder.q8 }}>Artist</span>: <input className="answer" id={`round${info.round}answer q4b`} defaultValue={info.answers[7]} /><input type="checkbox" id={`round${info.round} question1`} /><label htmlFor="question1">Check if correct</label><br />
-      <strong>Question 5</strong><br />
-      <span style={{ color: holder.q9 }}>Title</span>: <input className="answer" id={`round${info.round}answer q5a`} defaultValue={info.answers[8]} /><input type="checkbox" id={`round${info.round} question1`} /><label htmlFor="question1">Check if correct</label><br />
-      <span style={{ color: holder.q10 }}>Artist</span>: <input className="answer" id={`round${info.round}answer q5b`} defaultValue={info.answers[9]} /><input type="checkbox" id={`round${info.round} question1`} /><label htmlFor="question1">Check if correct</label><br />
-      <strong>Question 6</strong><br />
-      <span style={{ color: holder.q11 }}>Title</span>: <input className="answer" id={`round${info.round}answer q6a`} defaultValue={info.answers[10]} /><input type="checkbox" id={`round${info.round} question1`} /><label htmlFor="question1">Check if correct</label><br />
-      <span style={{ color: holder.q12 }}>Artist</span>: <input className="answer" id={`round${info.round}answer q6b`} defaultValue={info.answers[11]} /><input type="checkbox" id={`round${info.round} question1`} /><label htmlFor="question1">Check if correct</label><br />
-      <strong>Question 7</strong><br />
-      <span style={{ color: holder.q13 }}>Title</span>: <input className="answer" id={`round${info.round}answer q7a`} defaultValue={info.answers[12]} /><input type="checkbox" id={`round${info.round} question1`} /><label htmlFor="question1">Check if correct</label><br />
-      <span style={{ color: holder.q14 }}>Artist</span>: <input className="answer" id={`round${info.round}answer q7b`} defaultValue={info.answers[13]} /><input type="checkbox" id={`round${info.round} question1`} /><label htmlFor="question1">Check if correct</label><br />
-      <strong>Question 8</strong><br />
-      <span style={{ color: holder.q15 }}>Title</span>: <input className="answer" id={`round${info.round}answer q8a`} defaultValue={info.answers[14]} /><input type="checkbox" id={`round${info.round} question1`} /><label htmlFor="question1">Check if correct</label><br />
-      <span style={{ color: holder.q16 }}>Artist</span>: <input className="answer" id={`round${info.round}answer q8b`} defaultValue={info.answers[15]} /><input type="checkbox" id={`round${info.round} question1`} /><label htmlFor="question1">Check if correct</label><br />
+      <MusicQuestion
+        round={2}
+        number={1}
+        titleColor={colors.q1}
+        artistColor={colors.q2}
+        titleAnswer={info.answers[0]}
+        artistAnswer={info.answers[1]}
+      />
+      <MusicQuestion
+        round={2}
+        number={2}
+        titleColor={colors.q3}
+        artistColor={colors.q4}
+        titleAnswer={info.answers[2]}
+        artistAnswer={info.answers[3]}
+      />
+      <MusicQuestion
+        round={2}
+        number={3}
+        titleColor={colors.q5}
+        artistColor={colors.q6}
+        titleAnswer={info.answers[4]}
+        artistAnswer={info.answers[5]}
+      />
+      <MusicQuestion
+        round={2}
+        number={4}
+        titleColor={colors.q7}
+        artistColor={colors.q8}
+        titleAnswer={info.answers[6]}
+        artistAnswer={info.answers[7]}
+      />
+      <MusicQuestion
+        round={2}
+        number={5}
+        titleColor={colors.q9}
+        artistColor={colors.q10}
+        titleAnswer={info.answers[8]}
+        artistAnswer={info.answers[9]}
+      />
+      <MusicQuestion
+        round={2}
+        number={6}
+        titleColor={colors.q11}
+        artistColor={colors.q12}
+        titleAnswer={info.answers[10]}
+        artistAnswer={info.answers[11]}
+      />
+      <MusicQuestion
+        round={2}
+        number={7}
+        titleColor={colors.q13}
+        artistColor={colors.q14}
+        titleAnswer={info.answers[12]}
+        artistAnswer={info.answers[13]}
+      />
+      <MusicQuestion
+        round={2}
+        number={8}
+        titleColor={colors.q15}
+        artistColor={colors.q16}
+        titleAnswer={info.answers[14]}
+        artistAnswer={info.answers[15]}
+      />
       <br />
       <button value={info.round} onClick={updater} type="button">
         CLICK TO UPDATE YOUR ROUND {info.round} ANSWERS AND SCORE
