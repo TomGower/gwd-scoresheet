@@ -103,7 +103,12 @@ class App extends React.Component {
       this.setState({
         jokerScore: thisScore,
         [roundName]: currentInfo,
-        score: newTotal + thisScore, // to account for joker, without using callback
+      }, () => {
+        this.setState({
+          score: this.state.r1info.score + this.state.r2info.score + this.state.r3info.score
+          + this.state.r4info.score + this.state.r5info.score + this.state.r6info.score
+          + this.state.r7info.score + this.state.jokerScore,
+        });
       });
     } else {
       this.setState({
