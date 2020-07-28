@@ -12,7 +12,7 @@ import RoundFour from './Round4';
 import RoundFive from './Round5';
 import RoundSix from './Round6';
 import RoundSeven from './Round7';
-import RoundEight from './Round8';
+import RandomRound from './Round8';
 import BonusQuestions from './BonusQuestions';
 
 class App extends React.Component {
@@ -107,7 +107,7 @@ class App extends React.Component {
         this.setState({
           score: this.state.r1info.score + this.state.r2info.score + this.state.r3info.score
           + this.state.r4info.score + this.state.r5info.score + this.state.r6info.score
-          + this.state.r7info.score + this.state.jokerScore,
+          + this.state.r7info.score + this.state.r8info.score + this.state.jokerScore,
         });
       });
     } else {
@@ -220,7 +220,7 @@ class App extends React.Component {
       );
     } else if (currentPage === 8) {
       thisRound = (
-        <RoundEight
+        <RandomRound
           updater={this.updateScore}
           info={this.state.r8info}
         />
