@@ -167,62 +167,64 @@ class App extends React.Component {
       </li>
     ));
 
-    const { currentPage } = this.state;
+    const {
+      currentPage, r1info, r2info, r3info, r4info, r5info, r6info, r7info, r8info, score,
+    } = this.state;
     let thisRound;
     if (currentPage === 1) {
       thisRound = (
         <RoundOne
           updater={this.updateScore}
-          info={this.state.r1info}
+          info={r1info}
         />
       );
     } else if (currentPage === 2) {
       thisRound = (
         <MusicRound
           updater={this.updateScore}
-          info={this.state.r2info}
+          info={r2info}
         />
       );
     } else if (currentPage === 3) {
       thisRound = (
         <RoundThree
           updater={this.updateScore}
-          info={this.state.r3info}
+          info={r3info}
         />
       );
     } else if (currentPage === 4) {
       thisRound = (
         <RoundFour
           updater={this.updateScore}
-          info={this.state.r4info}
+          info={r4info}
         />
       );
     } else if (currentPage === 5) {
       thisRound = (
         <RoundFive
           updater={this.updateScore}
-          info={this.state.r5info}
+          info={r5info}
         />
       );
     } else if (currentPage === 6) {
       thisRound = (
         <RoundSix
           updater={this.updateScore}
-          info={this.state.r6info}
+          info={r6info}
         />
       );
     } else if (currentPage === 7) {
       thisRound = (
         <RoundSeven
           updater={this.updateScore}
-          info={this.state.r7info}
+          info={r7info}
         />
       );
     } else if (currentPage === 8) {
       thisRound = (
         <RandomRound
           updater={this.updateScore}
-          info={this.state.r8info}
+          info={r8info}
         />
       );
     }
@@ -233,7 +235,7 @@ class App extends React.Component {
         <hr />
         <h4>
           Your Current Score is
-          {` ${this.state.score}`}
+          {` ${score}`}
         </h4>
         <hr />
         <Joker pickJoker={this.pickJoker} />
