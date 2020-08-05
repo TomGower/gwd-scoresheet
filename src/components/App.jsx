@@ -1,7 +1,4 @@
 /* eslint-disable react/no-unused-state */
-/* eslint-disable react/no-access-state-in-setstate */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import Joker from './Joker';
@@ -170,8 +167,8 @@ class App extends React.Component {
         <h2 align="center">GEEKS WHO DRINK Scoresheet</h2>
         <hr />
         <h4>
-          Your Current Score is
-          {` ${score}`}
+          {'Your Current Score is '}
+          {score}
         </h4>
         <hr />
         <Joker pickJoker={this.pickJoker} />
