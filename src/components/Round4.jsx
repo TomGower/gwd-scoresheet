@@ -82,14 +82,14 @@ const RoundFour = ({
   return (
     <div>
       <h4>Round {info.round}</h4>
-      <Question thisColor={holder.q1} round={info.round} answer={info.answers[0]} number={1} />
-      <Question thisColor={holder.q2} round={info.round} answer={info.answers[1]} number={2} />
-      <Question thisColor={holder.q3} round={info.round} answer={info.answers[2]} number={3} />
-      <Question thisColor={holder.q4} round={info.round} answer={info.answers[3]} number={4} />
-      <Question thisColor={holder.q5} round={info.round} answer={info.answers[4]} number={5} />
-      <Question thisColor={holder.q6} round={info.round} answer={info.answers[5]} number={6} />
-      <Question thisColor={holder.q7} round={info.round} answer={info.answers[6]} number={7} />
-      <Question thisColor={holder.q8} round={info.round} answer={info.answers[7]} number={8} />
+      <Question thisColor={holder.q1} round={info.round} answer={info.answers[0]} number={1} checked={holder.q1 === 'green' ? 'checked' : false} />
+      <Question thisColor={holder.q2} round={info.round} answer={info.answers[1]} number={2} checked={holder.q2 === 'green' ? 'checked' : false} />
+      <Question thisColor={holder.q3} round={info.round} answer={info.answers[2]} number={3} checked={holder.q3 === 'green' ? 'checked' : false} />
+      <Question thisColor={holder.q4} round={info.round} answer={info.answers[3]} number={4} checked={holder.q4 === 'green' ? 'checked' : false} />
+      <Question thisColor={holder.q5} round={info.round} answer={info.answers[4]} number={5} checked={holder.q5 === 'green' ? 'checked' : false} />
+      <Question thisColor={holder.q6} round={info.round} answer={info.answers[5]} number={6} checked={holder.q6 === 'green' ? 'checked' : false} />
+      <Question thisColor={holder.q7} round={info.round} answer={info.answers[6]} number={7} checked={holder.q7 === 'green' ? 'checked' : false} />
+      <Question thisColor={holder.q8} round={info.round} answer={info.answers[7]} number={8} checked={holder.q8 === 'green' ? 'checked' : false} />
       <br />
       <button value={info.round} onClick={updater} type="button">
         CLICK TO UPDATE YOUR ROUND {info.round} ANSWERS AND SCORE

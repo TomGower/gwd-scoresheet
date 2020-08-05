@@ -4,7 +4,7 @@
 import React from 'react';
 
 const Question = ({
-  thisColor, round, answer, number,
+  thisColor, round, answer, number, checked = false,
 }) => (
   <div>
     <strong>
@@ -12,7 +12,7 @@ const Question = ({
     </strong>
     <br />
     <span style={{ color: thisColor }}>Answer</span>: <input className="answer" id={`round${round}answer q${number}`} defaultValue={answer} />
-    <input type="checkbox" id={`round${round} question${number}`} /><label htmlFor={`question${number}`}>Check if correct</label>
+    <input type="checkbox" id={`round${round} question${number}`} defaultChecked={!!checked} /><label htmlFor={`question${number}`}>Check if correct</label>
     <br />
   </div>
 );

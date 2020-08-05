@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-state */
 /* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable jsx-a11y/label-has-associated-control */
@@ -14,10 +15,14 @@ import RoundSix from './Round6';
 import RoundSeven from './Round7';
 import RandomRound from './Round8';
 import BonusQuestions from './BonusQuestions';
+import checkSpecialRound from '../functions/checkSpecialRound';
+import handleClick from '../functions/handleClick';
+import pickJoker from '../functions/pickJoker';
+import updateScore from '../functions/updateScore';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       currentPage: 1,
       score: 0,
@@ -78,79 +83,10 @@ class App extends React.Component {
         score: 0,
       },
     };
-    this.updateScore = this.updateScore.bind(this);
-    this.pickJoker = this.pickJoker.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-    this.checkSpecialRound = this.checkSpecialRound.bind(this);
-  }
-
-  updateScore(event) {
-    const round = event.target.value;
-    const answerBoxes = document.querySelectorAll(`input[id~='round${round}answer']`);
-    const answers = [];
-    answerBoxes.forEach((answer) => answers.push(answer.value));
-    const checkboxes = document.querySelectorAll(`input[id~='round${round}']`);
-    const check = [];
-    checkboxes.forEach((checkbox) => (checkbox.checked ? check.push(1) : check.push(0)));
-    const thisScore = check.reduce((acc, cur) => (acc + cur));
-    const roundName = `r${round}info`;
-    const currentInfo = this.state[roundName];
-    const newTotal = this.state.score - currentInfo.score + thisScore;
-    currentInfo.score = thisScore;
-    currentInfo.answers = answers;
-    currentInfo.scores = check;
-    if (`r${round}` === this.state.joker) {
-      this.setState({
-        jokerScore: thisScore,
-        [roundName]: currentInfo,
-      }, () => {
-        this.setState({
-          score: this.state.r1info.score + this.state.r2info.score + this.state.r3info.score
-          + this.state.r4info.score + this.state.r5info.score + this.state.r6info.score
-          + this.state.r7info.score + this.state.r8info.score + this.state.jokerScore,
-        });
-      });
-    } else {
-      this.setState({
-        [roundName]: currentInfo,
-        score: newTotal,
-      });
-    }
-  }
-
-  pickJoker() {
-    const radio = document.querySelectorAll('input[name=\'joker\']');
-    for (let i = 0; i < radio.length; i += 1) {
-      if (radio[i].checked) {
-        this.setState({ joker: radio[i].value });
-        break;
-      }
-    }
-  }
-
-  checkSpecialRound() {
-    const specialRound = document.querySelectorAll('input[name=\'bonus\']');
-    for (let i = 0; i < specialRound.length; i += 1) {
-      let special = 0;
-      if (i === 0) special = 1;
-      else special = i + 2;
-      const roundName = `r${special}info`;
-      const currentInfo = this.state[roundName];
-      if (specialRound[i].checked && !currentInfo.special) {
-        currentInfo.special = true;
-        currentInfo.scores = Array(16).fill(null);
-        currentInfo.answers = Array(16).fill('');
-        this.setState({
-          [roundName]: currentInfo,
-        });
-      }
-    }
-  }
-
-  handleClick(event) {
-    this.setState({
-      currentPage: Number(event.target.id),
-    });
+    this.updateScore = updateScore.bind(this);
+    this.pickJoker = pickJoker.bind(this);
+    this.handleClick = handleClick.bind(this);
+    this.checkSpecialRound = checkSpecialRound.bind(this);
   }
 
   render() {
@@ -170,58 +106,58 @@ class App extends React.Component {
     const {
       currentPage, r1info, r2info, r3info, r4info, r5info, r6info, r7info, r8info, score,
     } = this.state;
-    let thisRound;
+    let currentRound;
     if (currentPage === 1) {
-      thisRound = (
+      currentRound = (
         <RoundOne
           updater={this.updateScore}
           info={r1info}
         />
       );
     } else if (currentPage === 2) {
-      thisRound = (
+      currentRound = (
         <MusicRound
           updater={this.updateScore}
           info={r2info}
         />
       );
     } else if (currentPage === 3) {
-      thisRound = (
+      currentRound = (
         <RoundThree
           updater={this.updateScore}
           info={r3info}
         />
       );
     } else if (currentPage === 4) {
-      thisRound = (
+      currentRound = (
         <RoundFour
           updater={this.updateScore}
           info={r4info}
         />
       );
     } else if (currentPage === 5) {
-      thisRound = (
+      currentRound = (
         <RoundFive
           updater={this.updateScore}
           info={r5info}
         />
       );
     } else if (currentPage === 6) {
-      thisRound = (
+      currentRound = (
         <RoundSix
           updater={this.updateScore}
           info={r6info}
         />
       );
     } else if (currentPage === 7) {
-      thisRound = (
+      currentRound = (
         <RoundSeven
           updater={this.updateScore}
           info={r7info}
         />
       );
     } else if (currentPage === 8) {
-      thisRound = (
+      currentRound = (
         <RandomRound
           updater={this.updateScore}
           info={r8info}
@@ -242,7 +178,7 @@ class App extends React.Component {
         <hr />
         <SpecialRound checkSpecialRound={this.checkSpecialRound} />
         <hr />
-        {thisRound}
+        {currentRound}
         <ul id="page-numbers">
           {renderPageNumbers}
         </ul>
