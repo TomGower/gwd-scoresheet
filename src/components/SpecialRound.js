@@ -17,12 +17,6 @@ const SpecialRound = ({ checkSpecialRound }) => (
 
       <input type="checkbox" id="Bround5" name="bonus" value="r5" />
       <label htmlFor="Bround5">Round 5</label>
-
-      <input type="checkbox" id="Bround6" name="bonus" value="r6" />
-      <label htmlFor="Bround6">Round 6</label>
-
-      <input type="checkbox" id="Bround7" name="bonus" value="r7" />
-      <label htmlFor="Bround7">Round 7</label>
     </div>
     <div>
       <button type="submit" id="bonusButton" onClick={checkSpecialRound}>Submit Special 16-Point Round Selections</button>

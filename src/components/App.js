@@ -60,7 +60,6 @@ class App extends React.Component {
       },
       r6info: {
         round: 6,
-        special: false,
         scores: Array(16).fill(null),
         answers: Array(16).fill(''),
         score: 0,
