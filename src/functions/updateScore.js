@@ -22,7 +22,7 @@ function updateScore(event) {
       this.setState({
         score: this.state.r1info.score + this.state.r2info.score + this.state.r3info.score
         + this.state.r4info.score + this.state.r5info.score + this.state.r6info.score
-        + this.state.r7info.score + this.state.r8info.score + this.state.jokerScore,
+        + this.state.r7info.score + this.state.jokerScore,
       });
     });
   } else {
