@@ -1,16 +1,15 @@
 /* eslint-disable react/no-unused-state */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
+
 import Joker from './Joker';
 import SpecialRound from './SpecialRound';
-import RoundOne from './Round1';
-import MusicRound from './Round2';
-import RoundThree from './Round3';
-import RoundFour from './Round4';
-import RoundFive from './Round5';
+import NormalRound from './NormalRound';
+import MusicRound from './MusicRound';
 import RoundSix from './Round6';
-import RandomRound from './Round8';
+import RandomRound from './RandomRound';
 import BonusQuestions from './BonusQuestions';
+
 import checkSpecialRound from '../functions/checkSpecialRound';
 import handleClick from '../functions/handleClick';
 import pickJoker from '../functions/pickJoker';
@@ -97,9 +96,10 @@ class App extends React.Component {
     let currentRound;
     if (currentPage === 1) {
       currentRound = (
-        <RoundOne
+        <NormalRound
           updater={this.updateScore}
           info={r1info}
+          key="r1"
         />
       );
     } else if (currentPage === 2) {
@@ -111,23 +111,26 @@ class App extends React.Component {
       );
     } else if (currentPage === 3) {
       currentRound = (
-        <RoundThree
+        <NormalRound
           updater={this.updateScore}
           info={r3info}
+          key="r3"
         />
       );
     } else if (currentPage === 4) {
       currentRound = (
-        <RoundFour
+        <NormalRound
           updater={this.updateScore}
           info={r4info}
+          key="r4"
         />
       );
     } else if (currentPage === 5) {
       currentRound = (
-        <RoundFive
+        <NormalRound
           updater={this.updateScore}
           info={r5info}
+          key="r5"
         />
       );
     } else if (currentPage === 6) {
