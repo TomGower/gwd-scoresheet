@@ -10,12 +10,12 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        test: /\.m?js/,
-        resolve: {
-          fullySpecified: false,
-        },
-      },
+      // {
+      //   test: /\.m?js/,
+      //   resolve: {
+      //     fullySpecified: false,
+      //   },
+      // },
       {
         test: /\.(js|jsx)$/,
         type: 'javascript/auto',
