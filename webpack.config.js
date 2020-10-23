@@ -1,9 +1,24 @@
+const path = require('path');
+
 module.exports = {
-  entry: `${__dirname}/src/index.jsx`,
+  entry: {
+    main: path.resolve(__dirname, './src/index.js'),
+  },
+  output: {
+    path: path.resolve(__dirname, './client/dist'),
+    filename: 'bundle.js',
+  },
   module: {
     rules: [
       {
+        test: /\.m?js/,
+        resolve: {
+          fullySpecified: false,
+        },
+      },
+      {
         test: /\.(js|jsx)$/,
+        type: 'javascript/auto',
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -13,12 +28,5 @@ module.exports = {
         },
       },
     ],
-  },
-  resolve: {
-    extensions: ['*', '.js', '.jsx'],
-  },
-  output: {
-    filename: 'bundle.js',
-    path: `${__dirname}/client/dist`,
   },
 };
