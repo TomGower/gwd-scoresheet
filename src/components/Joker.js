@@ -26,9 +26,6 @@ const Joker = ({ pickJoker }) => (
 
       <input type="radio" id="Jround7" name="joker" value="r7" />
       <label htmlFor="Jround7">Round 7</label>
-
-      <input type="radio" id="Jround8" name="joker" value="r8" />
-      <label htmlFor="Jround8">Round 8</label>
     </div>
     <div>
       <button type="submit" id="jokerButton" onClick={pickJoker}>Submit Joker Round Selection</button>

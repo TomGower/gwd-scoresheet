@@ -37,13 +37,13 @@ const BonusRound = () => (
     <input type="checkbox" id="bonusquestion6" />
     <label htmlFor="bonusquestion6">Check if correct</label>
     <br />
-    Round 8 Bonus Question
+    Round 7 Bonus Question
     <br />
     <span>Answer</span>
     {': '}
     <input className="answer" />
-    <input type="checkbox" id="bonusquestion8" />
-    <label htmlFor="bonusquestion8">Check if correct</label>
+    <input type="checkbox" id="bonusquestion7" />
+    <label htmlFor="bonusquestion7">Check if correct</label>
     <br />
   </div>
 );

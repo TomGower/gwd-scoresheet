@@ -9,7 +9,6 @@ import RoundThree from './Round3';
 import RoundFour from './Round4';
 import RoundFive from './Round5';
 import RoundSix from './Round6';
-import RoundSeven from './Round7';
 import RandomRound from './Round8';
 import BonusQuestions from './BonusQuestions';
 import checkSpecialRound from '../functions/checkSpecialRound';
@@ -62,19 +61,12 @@ class App extends React.Component {
       r6info: {
         round: 6,
         special: false,
-        scores: Array(8).fill(null),
-        answers: Array(8).fill(''),
+        scores: Array(16).fill(null),
+        answers: Array(16).fill(''),
         score: 0,
       },
       r7info: {
         round: 7,
-        special: false,
-        scores: Array(8).fill(null),
-        answers: Array(8).fill(''),
-        score: 0,
-      },
-      r8info: {
-        round: 8,
         scores: Array(16).fill(null),
         answers: Array(16).fill(''),
         score: 0,
@@ -87,7 +79,7 @@ class App extends React.Component {
   }
 
   render() {
-    const pageNumbers = [1, 2, 3, 4, 5, 6, 7, 8];
+    const pageNumbers = [1, 2, 3, 4, 5, 6, 7];
 
     const renderPageNumbers = pageNumbers.map((number) => (
       // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
@@ -101,7 +93,7 @@ class App extends React.Component {
     ));
 
     const {
-      currentPage, r1info, r2info, r3info, r4info, r5info, r6info, r7info, r8info, score,
+      currentPage, r1info, r2info, r3info, r4info, r5info, r6info, r7info, score,
     } = this.state;
     let currentRound;
     if (currentPage === 1) {
@@ -148,16 +140,9 @@ class App extends React.Component {
       );
     } else if (currentPage === 7) {
       currentRound = (
-        <RoundSeven
-          updater={this.updateScore}
-          info={r7info}
-        />
-      );
-    } else if (currentPage === 8) {
-      currentRound = (
         <RandomRound
           updater={this.updateScore}
-          info={r8info}
+          info={r7info}
         />
       );
     }
