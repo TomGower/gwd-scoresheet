@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import Question from './Question';
@@ -23,8 +22,7 @@ const NormalRound = ({
     return (
       <div>
         <h4>
-          {'Round '}
-          {info.round}
+          {`Round ${info.round}`}
         </h4>
         <TwoPartQuestion
           round={info.round}
@@ -108,9 +106,7 @@ const NormalRound = ({
         />
         <br />
         <button value={info.round} onClick={updater} type="button">
-          {'CLICK TO UPDATE YOUR ROUND '}
-          {info.round}
-          {' ANSWERS AND SCORE'}
+          {`CLICK TO UPDATE YOUR ROUND ${info.round} ANSWERS AND SCORE`}
         </button>
       </div>
     );
@@ -119,8 +115,7 @@ const NormalRound = ({
   return (
     <div>
       <h4>
-        {'Round '}
-        {info.round}
+        {`Round ${info.round}`}
       </h4>
       {colors.map((color, index) => (
         <Question
@@ -134,9 +129,7 @@ const NormalRound = ({
       ))}
       <br />
       <button value={info.round} onClick={updater} type="button">
-        {'CLICK TO UPDATE YOUR ROUND '}
-        {info.round}
-        {' ANSWERS AND SCORE'}
+        {`CLICK TO UPDATE YOUR ROUND ${info.round} ANSWERS AND SCORE`}
       </button>
     </div>
   );

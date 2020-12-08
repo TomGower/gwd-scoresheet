@@ -7,8 +7,7 @@ const MusicQuestion = ({
 }) => (
   <div>
     <strong>
-      {'Question '}
-      {number}
+      {`Question ${number}`}
     </strong>
     <br />
     <span style={{ color: titleColor }}>Title</span>

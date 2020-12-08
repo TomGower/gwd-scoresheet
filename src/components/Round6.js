@@ -19,8 +19,7 @@ const RoundSix = ({
   return (
     <div>
       <h4>
-        {'Round '}
-        {info.round}
+        {`Round ${info.round}`}
       </h4>
       <TwoPartQuestion
         round={info.round}
@@ -104,9 +103,7 @@ const RoundSix = ({
       />
       <br />
       <button value={info.round} onClick={updater} type="button">
-        {'CLICK TO UPDATE YOUR ROUND '}
-        {info.round}
-        {' ANSWERS AND SCORE'}
+        {`CLICK TO UPDATE YOUR ROUND ${info.round} ANSWERS AND SCORE`}
       </button>
     </div>
   );

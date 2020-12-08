@@ -154,8 +154,7 @@ class App extends React.Component {
         <h2 align="center">GEEKS WHO DRINK Scoresheet</h2>
         <hr />
         <h4>
-          {'Your Current Score is '}
-          {score}
+          {`Your Current Score is ${score}`}
         </h4>
         <hr />
         <Joker pickJoker={this.pickJoker} />

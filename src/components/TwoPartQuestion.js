@@ -7,18 +7,15 @@ const TwoPartQuestion = ({
 }) => (
   <div>
     <strong>
-      {'Question '}
-      {number}
+      {`Question ${number}`}
     </strong>
     <br />
-    <span style={{ color: color1 }}>Answer A</span>
-    {': '}
+    <span style={{ color: color1 }}>{'Answer A: '}</span>
     <input className="answer" id={`round${round}answer q${number}a`} defaultValue={answer1} />
     <input type="checkbox" id={`round${round} question${number}`} defaultChecked={!!checked1} />
     <label htmlFor={`question${number}`}>Check if correct</label>
     <br />
-    <span style={{ color: color2 }}>Answer B</span>
-    {': '}
+    <span style={{ color: color2 }}>{'Answer B: '}</span>
     <input className="answer" id={`round${round}answer q${number}b`} defaultValue={answer2} />
     <input type="checkbox" id={`round${round} question${number}`} defaultChecked={!!checked2} />
     <label htmlFor={`question${number}`}>Check if correct</label>

@@ -20,8 +20,7 @@ const MusicRound = ({
   return (
     <div>
       <h4>
-        {'Round '}
-        {info.round}
+        {`Round ${info.round}`}
       </h4>
       <MusicQuestion
         round={2}
@@ -105,9 +104,7 @@ const MusicRound = ({
       />
       <br />
       <button value={info.round} onClick={updater} type="button">
-        {'CLICK TO UPDATE YOUR ROUND '}
-        {info.round}
-        {' ANSWERS AND SCORE'}
+        {`CLICK TO UPDATE YOUR ROUND ${info.round} ANSWERS AND SCORE`}
       </button>
     </div>
   );
