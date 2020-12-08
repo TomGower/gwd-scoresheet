@@ -10,23 +10,21 @@ module.exports = {
   },
   module: {
     rules: [
-      // {
-      //   test: /\.m?js/,
-      //   resolve: {
-      //     fullySpecified: false,
-      //   },
-      // },
       {
         test: /\.(js|jsx)$/,
-        type: 'javascript/auto',
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-react', '@babel/preset-env'],
-          },
+        include: [
+          path.resolve(__dirname, 'src'),
+        ],
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-react', '@babel/preset-env'],
         },
+        type: 'javascript/auto',
       },
     ],
+  },
+  watchOptions: {
+    poll: true,
+    ignored: /node_modules/,
   },
 };
