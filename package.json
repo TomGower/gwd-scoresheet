@@ -1,7 +1,10 @@
 {
   "name": "gwd-scoresheet",
-  "version": "1.0.0",
   "description": "A scoresheet for Geeks Who Drink",
+  "version": "1.0.0",
+  "engines": {
+    "node": "14.x"
+  },
   "main": "index.js",
   "scripts": {
     "start": "node server/server.js",
