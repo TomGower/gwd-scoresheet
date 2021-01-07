@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/prop-types */
 import React from 'react';
 
@@ -9,8 +8,10 @@ const BonusQuestion = ({ roundNumber }) => (
     <span>Answer</span>
     {': '}
     <input className="answer" />
-    <input type="checkbox" id={`bonusquestion${roundNumber}`} />
-    <label htmlFor={`bonusquestion${roundNumber}`}>Check if correct</label>
+    <label htmlFor={`bonusquestion${roundNumber}`}>
+      <input type="checkbox" id={`bonusquestion${roundNumber}`} />
+      Check if correct
+    </label>
     <br />
   </>
 );
