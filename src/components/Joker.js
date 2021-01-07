@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 
 const JokerInput = ({ round }) => (
   <>
-    <input type="radio" id={`Jround${round}`} name="joker" value={`r${round}`} data-input={round} />
-    <label htmlFor={`Jround${round}`}>{`Round ${round}`}</label>
+    <label htmlFor={`Jround${round}`}>
+      <input type="radio" id={`Jround${round}`} name="joker" value={`r${round}`} data-input={round} />
+      {`Round ${round}`}
+    </label>
   </>
 );
 
