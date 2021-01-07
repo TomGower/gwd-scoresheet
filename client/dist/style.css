@@ -19,7 +19,8 @@ span {
 }
 
 .answer {
-  width: 200px;
+  width: 300px;
+  margin-bottom: 5px;
 }
 
 #page-numbers {
