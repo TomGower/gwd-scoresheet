@@ -7,7 +7,7 @@ const BonusRound = () => (
   <div>
     <strong>Bonus Questions</strong>
     <br />
-    {bonusRounds.map((round) => <BonusQuestion n={round} key={round} />)}
+    {bonusRounds.map((round) => <BonusQuestion roundNumber={round} key={round} />)}
   </div>
 );
 
