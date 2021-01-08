@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 
 // eslint-disable-next-line react/prop-types
@@ -6,17 +5,25 @@ const SpecialRound = ({ checkSpecialRound }) => (
   <div>
     <p>Pick which rounds are special 16-point rounds!</p>
     <div>
-      <input type="checkbox" id="Bround1" name="bonus" value="r1" />
-      <label htmlFor="Bround1">Round 1</label>
+      <label htmlFor="Bround1">
+        <input type="checkbox" id="Bround1" name="bonus" value="r1" />
+        Round 1
+      </label>
 
-      <input type="checkbox" id="Bround3" name="bonus" value="r3" />
-      <label htmlFor="Bround3">Round 3</label>
+      <label htmlFor="Bround3">
+        <input type="checkbox" id="Bround3" name="bonus" value="r3" />
+        Round 3
+      </label>
 
-      <input type="checkbox" id="Bround4" name="bonus" value="r4" />
-      <label htmlFor="Bround4">Round 4</label>
+      <label htmlFor="Bround4">
+        <input type="checkbox" id="Bround4" name="bonus" value="r4" />
+        Round 4
+      </label>
 
-      <input type="checkbox" id="Bround5" name="bonus" value="r5" />
-      <label htmlFor="Bround5">Round 5</label>
+      <label htmlFor="Bround5">
+        <input type="checkbox" id="Bround5" name="bonus" value="r5" />
+        Round 5
+      </label>
     </div>
     <div>
       <button type="submit" id="bonusButton" onClick={checkSpecialRound}>Submit Special 16-Point Round Selections</button>

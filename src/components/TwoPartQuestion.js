@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 
 const TwoPartQuestion = ({
@@ -12,13 +11,17 @@ const TwoPartQuestion = ({
     <br />
     <span style={{ color: color1 }}>{'Answer A: '}</span>
     <input className="answer" id={`round${round}answer q${number}a`} defaultValue={answer1} />
-    <input type="checkbox" id={`round${round} question${number}`} defaultChecked={!!checked1} />
-    <label htmlFor={`question${number}`}>Check if correct</label>
+    <label htmlFor={`question${number}a`}>
+      <input type="checkbox" id={`round${round} question${number}a`} defaultChecked={!!checked1} />
+      Check if correct
+    </label>
     <br />
     <span style={{ color: color2 }}>{'Answer B: '}</span>
     <input className="answer" id={`round${round}answer q${number}b`} defaultValue={answer2} />
-    <input type="checkbox" id={`round${round} question${number}`} defaultChecked={!!checked2} />
-    <label htmlFor={`question${number}`}>Check if correct</label>
+    <label htmlFor={`question${number}b`}>
+      <input type="checkbox" id={`round${round} question${number}b`} defaultChecked={!!checked2} />
+      Check if correct
+    </label>
     <br />
   </div>
 );
