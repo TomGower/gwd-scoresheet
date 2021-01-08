@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import Question from './Question';
 import TwoPartQuestion from './TwoPartQuestion';
 
@@ -12,7 +12,7 @@ const RandomRound = ({
       colors.push('green');
     } else if (parseInt(info.scores[i], 10) === 0) {
       colors.push('red');
-    } else if (info.scores[i] === '') {
+    } else {
       colors.push('black');
     }
   }
@@ -147,3 +147,13 @@ const RandomRound = ({
 };
 
 export default RandomRound;
+
+RandomRound.propTypes = {
+  info: PropTypes.shape({
+    round: PropTypes.number.isRequired,
+    scores: PropTypes.arrayOf(PropTypes.number).isRequired,
+    answers: PropTypes.arrayOf(PropTypes.string).isRequired,
+    score: PropTypes.number.isRequired,
+  }).isRequired,
+  updater: PropTypes.func.isRequired,
+};

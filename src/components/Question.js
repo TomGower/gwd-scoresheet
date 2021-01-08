@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Question = ({
   thisColor, round, answer, number, checked = false,
@@ -18,3 +18,11 @@ const Question = ({
 );
 
 export default Question;
+
+Question.propTypes = {
+  thisColor: PropTypes.string.isRequired,
+  round: PropTypes.number.isRequired,
+  answer: PropTypes.string.isRequired,
+  number: PropTypes.number.isRequired,
+  checked: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).isRequired,
+};

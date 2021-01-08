@@ -1,6 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-// eslint-disable-next-line react/prop-types
 const SpecialRound = ({ checkSpecialRound }) => (
   <div>
     <p>Pick which rounds are special 16-point rounds!</p>
@@ -32,3 +32,7 @@ const SpecialRound = ({ checkSpecialRound }) => (
 );
 
 export default SpecialRound;
+
+SpecialRound.propTypes = {
+  checkSpecialRound: PropTypes.func.isRequired,
+};

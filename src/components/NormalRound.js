@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import Question from './Question';
 import TwoPartQuestion from './TwoPartQuestion';
 
@@ -135,3 +135,14 @@ const NormalRound = ({
 };
 
 export default NormalRound;
+
+NormalRound.propTypes = {
+  info: PropTypes.shape({
+    round: PropTypes.number.isRequired,
+    special: PropTypes.bool.isRequired,
+    scores: PropTypes.arrayOf(PropTypes.number).isRequired,
+    answers: PropTypes.arrayOf(PropTypes.string).isRequired,
+    score: PropTypes.number.isRequired,
+  }).isRequired,
+  updater: PropTypes.func.isRequired,
+};

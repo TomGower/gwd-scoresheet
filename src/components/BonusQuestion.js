@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const BonusQuestion = ({ roundNumber }) => (
   <>
@@ -17,3 +17,7 @@ const BonusQuestion = ({ roundNumber }) => (
 );
 
 export default BonusQuestion;
+
+BonusQuestion.propTypes = {
+  roundNumber: PropTypes.number.isRequired,
+};

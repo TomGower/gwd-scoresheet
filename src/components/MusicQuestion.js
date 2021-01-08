@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const MusicQuestion = ({
-  // eslint-disable-next-line react/prop-types
   titleColor, artistColor, titleAnswer, artistAnswer, titleChecked, artistChecked, number, round,
 }) => (
   <div>
@@ -29,3 +29,14 @@ const MusicQuestion = ({
 );
 
 export default MusicQuestion;
+
+MusicQuestion.propTypes = {
+  titleColor: PropTypes.string.isRequired,
+  artistColor: PropTypes.string.isRequired,
+  titleAnswer: PropTypes.string.isRequired,
+  artistAnswer: PropTypes.string.isRequired,
+  titleChecked: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).isRequired,
+  artistChecked: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]).isRequired,
+  number: PropTypes.number.isRequired,
+  round: PropTypes.number.isRequired,
+};

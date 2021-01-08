@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const JokerInput = ({ round }) => (
   <>
@@ -25,3 +25,11 @@ const Joker = ({ pickJoker }) => (
 );
 
 export default Joker;
+
+JokerInput.propTypes = {
+  round: PropTypes.number.isRequired,
+};
+
+Joker.propTypes = {
+  pickJoker: PropTypes.func.isRequired,
+};
