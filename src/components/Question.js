@@ -5,9 +5,8 @@ import styled from 'styled-components';
 const Question = ({
   thisColor, round, answer, number, checked = false,
 }) => (
-  <div>
-    <strong>{`Question ${number}`}</strong>
-    <br />
+  <Wrapper>
+    <QuestionLabel>{`Question ${number}`}</QuestionLabel>
     <AnswerName style={{ color: thisColor }}>{'Answer: '}</AnswerName>
     <Answer id={`round${round}answer q${number}`} defaultValue={answer} />
     <label htmlFor={`question${number}`}>
@@ -15,8 +14,17 @@ const Question = ({
       Check if correct
     </label>
     <br />
-  </div>
+  </Wrapper>
 );
+
+const Wrapper = styled.div`
+  margin-bottom: 6px;
+`;
+
+const QuestionLabel = styled.div`
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+`;
 
 const Answer = styled.input`
   width: 300px;

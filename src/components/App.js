@@ -154,20 +154,20 @@ class App extends React.Component {
     return (
       <Wrapper>
         <Header>GEEKS WHO DRINK Scoresheet</Header>
-        <hr />
-        <h4>
+        <Divider />
+        <Score>
           {`Your Current Score is ${score}`}
-        </h4>
-        <hr />
+        </Score>
+        <Divider />
         <Joker pickJoker={this.pickJoker} />
-        <hr />
+        <Divider />
         <SpecialRound checkSpecialRound={this.checkSpecialRound} />
-        <hr />
+        <Divider />
         {currentRound}
         <PageNumbers>
           {renderPageNumbers}
         </PageNumbers>
-        <hr />
+        <Divider />
         <BonusQuestions />
         <GlobalStyle />
       </Wrapper>
@@ -184,12 +184,29 @@ const Header = styled.h2`
   text-align: center;
 `;
 
+const Divider = styled.div`
+  width: 100%;
+  height: 1px;
+  border: none;
+  background-color: black;
+`;
+
+const Score = styled.div`
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: block;
+  margin-block-start: 1.25rem;
+  margin-block-end: 1.25rem;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+`;
+
 const PageNumbers = styled.ul`
   list-style: none;
   display: flex;
 
   & > li {
-    margin-right: 0.3em;
+    margin-right: 0.5rem;
     color: blue;
     user-select: none;
     cursor: pointer;

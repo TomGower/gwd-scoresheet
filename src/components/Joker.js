@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const JokerInput = ({ round }) => (
   <>
@@ -13,16 +14,30 @@ const JokerInput = ({ round }) => (
 const rounds = [1, 2, 3, 4, 5, 6, 7];
 
 const Joker = ({ pickJoker }) => (
-  <div>
-    <p>Pick which round you want to joker!</p>
-    <div>
+  <Wrapper>
+    <Description>Pick which round you want to joker!</Description>
+    <ButtonWrapper>
       {rounds.map((round) => <JokerInput round={round} key={round} />)}
-    </div>
+    </ButtonWrapper>
     <div>
       <button type="submit" id="jokerButton" onClick={pickJoker}>Submit Joker Round Selection</button>
     </div>
-  </div>
+  </Wrapper>
 );
+
+const Wrapper = styled.div`
+  padding-bottom: 0.5rem;
+`;
+
+const Description = styled.div`
+  display: block;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+`;
+
+const ButtonWrapper = styled.div`
+  padding-bottom: 0.5rem;
+`;
 
 export default Joker;
 
