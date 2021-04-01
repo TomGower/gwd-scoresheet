@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const MusicQuestion = ({
   titleColor, artistColor, titleAnswer, artistAnswer, titleChecked, artistChecked, number, round,
@@ -9,17 +10,17 @@ const MusicQuestion = ({
       {`Question ${number}`}
     </strong>
     <br />
-    <span style={{ color: titleColor }}>Title</span>
+    <AnswerName style={{ color: titleColor }}>Title</AnswerName>
     {': '}
-    <input className="answer" id={`round${round}answer q${number}a`} defaultValue={titleAnswer} />
+    <Answer id={`round${round}answer q${number}a`} defaultValue={titleAnswer} />
     <label htmlFor={`question${number}`}>
       <input type="checkbox" id={`round${round} question${number}`} defaultChecked={!!titleChecked} />
       Check if correct
     </label>
     <br />
-    <span style={{ color: artistColor }}>Artist</span>
+    <AnswerName style={{ color: artistColor }}>Artist</AnswerName>
     {': '}
-    <input className="answer" id={`round${round}answer q${number}b`} defaultValue={artistAnswer} />
+    <Answer id={`round${round}answer q${number}b`} defaultValue={artistAnswer} />
     <label htmlFor={`question${number}`}>
       <input type="checkbox" id={`round${round} question${number}`} defaultChecked={!!artistChecked} />
       Check if correct
@@ -27,6 +28,16 @@ const MusicQuestion = ({
     <br />
   </div>
 );
+
+const AnswerName = styled.span`
+  display: inline-block;
+  width: 75px;
+`;
+
+const Answer = styled.input`
+  width: 300px;
+  margin-bottom: 5px;
+`;
 
 export default MusicQuestion;
 

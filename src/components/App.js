@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 
+import styled from 'styled-components';
 import Joker from './Joker';
 import SpecialRound from './SpecialRound';
 import NormalRound from './NormalRound';
@@ -14,6 +15,7 @@ import checkSpecialRound from '../functions/checkSpecialRound';
 import handleClick from '../functions/handleClick';
 import pickJoker from '../functions/pickJoker';
 import updateScore from '../functions/updateScore';
+import GlobalStyle from './GlobalStyles';
 
 class App extends React.Component {
   constructor() {
@@ -150,8 +152,8 @@ class App extends React.Component {
     }
 
     return (
-      <div>
-        <h2 align="center">GEEKS WHO DRINK Scoresheet</h2>
+      <Wrapper>
+        <Header>GEEKS WHO DRINK Scoresheet</Header>
         <hr />
         <h4>
           {`Your Current Score is ${score}`}
@@ -162,14 +164,36 @@ class App extends React.Component {
         <SpecialRound checkSpecialRound={this.checkSpecialRound} />
         <hr />
         {currentRound}
-        <ul id="page-numbers">
+        <PageNumbers>
           {renderPageNumbers}
-        </ul>
+        </PageNumbers>
         <hr />
         <BonusQuestions />
-      </div>
+        <GlobalStyle />
+      </Wrapper>
     );
   }
 }
+
+const Wrapper = styled.div`
+  margin-left: 20px;
+  margin-right: 20px;
+`;
+
+const Header = styled.h2`
+  text-align: center;
+`;
+
+const PageNumbers = styled.ul`
+  list-style: none;
+  display: flex;
+
+  & > li {
+    margin-right: 0.3em;
+    color: blue;
+    user-select: none;
+    cursor: pointer;
+  }
+`;
 
 export default App;
