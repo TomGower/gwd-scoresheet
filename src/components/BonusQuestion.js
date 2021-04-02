@@ -4,9 +4,9 @@ import styled from 'styled-components';
 
 const BonusQuestion = ({ roundNumber }) => (
   <Wrapper>
-    <div>
+    <BonusQuestionLabel>
       {`Round ${roundNumber} Bonus Question`}
-    </div>
+    </BonusQuestionLabel>
     <AnswerName>Answer:</AnswerName>
     <Answer />
     <label htmlFor={`bonusquestion${roundNumber}`}>
@@ -18,6 +18,10 @@ const BonusQuestion = ({ roundNumber }) => (
 
 const Wrapper = styled.div`
   margin-bottom: 0.5rem;
+`;
+
+const BonusQuestionLabel = styled.div`
+  margin-bottom: 0.25rem;
 `;
 
 const AnswerName = styled.span`
