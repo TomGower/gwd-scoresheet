@@ -13,7 +13,6 @@ const Question = ({
       <input type="checkbox" id={`round${round} question${number}`} defaultChecked={!!checked} />
       Check if correct
     </label>
-    <br />
   </Wrapper>
 );
 
