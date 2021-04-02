@@ -5,11 +5,8 @@ import styled from 'styled-components';
 const TwoPartQuestion = ({
   round, number, color1, answer1, checked1, color2, answer2, checked2,
 }) => (
-  <div>
-    <strong>
-      {`Question ${number}`}
-    </strong>
-    <br />
+  <Wrapper>
+    <QuestionLabel>{`Question ${number}`}</QuestionLabel>
     <AnswerName style={{ color: color1 }}>{'Answer A: '}</AnswerName>
     <Answer id={`round${round}answer q${number}a`} defaultValue={answer1} />
     <label htmlFor={`question${number}a`}>
@@ -23,9 +20,17 @@ const TwoPartQuestion = ({
       <input type="checkbox" id={`round${round} question${number}b`} defaultChecked={!!checked2} />
       Check if correct
     </label>
-    <br />
-  </div>
+  </Wrapper>
 );
+
+const Wrapper = styled.div`
+  margin-bottom: 6px;
+`;
+
+const QuestionLabel = styled.div`
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+`;
 
 const Answer = styled.input`
   width: 300px;

@@ -5,29 +5,32 @@ import styled from 'styled-components';
 const MusicQuestion = ({
   titleColor, artistColor, titleAnswer, artistAnswer, titleChecked, artistChecked, number, round,
 }) => (
-  <div>
-    <strong>
-      {`Question ${number}`}
-    </strong>
-    <br />
-    <AnswerName style={{ color: titleColor }}>Title</AnswerName>
-    {': '}
+  <Wrapper>
+    <QuestionLabel>{`Question ${number}`}</QuestionLabel>
+    <AnswerName style={{ color: titleColor }}>Title:</AnswerName>
     <Answer id={`round${round}answer q${number}a`} defaultValue={titleAnswer} />
     <label htmlFor={`question${number}`}>
       <input type="checkbox" id={`round${round} question${number}`} defaultChecked={!!titleChecked} />
       Check if correct
     </label>
     <br />
-    <AnswerName style={{ color: artistColor }}>Artist</AnswerName>
-    {': '}
+    <AnswerName style={{ color: artistColor }}>Artist:</AnswerName>
     <Answer id={`round${round}answer q${number}b`} defaultValue={artistAnswer} />
     <label htmlFor={`question${number}`}>
       <input type="checkbox" id={`round${round} question${number}`} defaultChecked={!!artistChecked} />
       Check if correct
     </label>
-    <br />
-  </div>
+  </Wrapper>
 );
+
+const Wrapper = styled.div`
+  margin-bottom: 6px;
+`;
+
+const QuestionLabel = styled.div`
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+`;
 
 const AnswerName = styled.span`
   display: inline-block;
