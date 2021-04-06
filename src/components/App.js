@@ -82,14 +82,13 @@ class App extends React.Component {
     const pageNumbers = [1, 2, 3, 4, 5, 6, 7];
 
     const renderPageNumbers = pageNumbers.map((number) => (
-      // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-      <li
+      <PageNumber
         key={number}
         id={number}
         onClick={this.handleClick}
       >
         {number}
-      </li>
+      </PageNumber>
     ));
 
     const {
@@ -204,13 +203,13 @@ const Score = styled.div`
 const PageNumbers = styled.ul`
   list-style: none;
   display: flex;
+`;
 
-  & > li {
-    margin-right: 0.5rem;
-    color: blue;
-    user-select: none;
-    cursor: pointer;
-  }
+const PageNumber = styled.li`
+  margin-right: 0.5rem;
+  color: blue;
+  user-select: none;
+  cursor: pointer;
 `;
 
 export default App;
