@@ -2,20 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Question from './Question';
 import TwoPartQuestion from './TwoPartQuestion';
+import getColors from '../functions/getColors';
 
 const NormalRound = ({
   updater, info,
 }) => {
-  const colors = [];
-  for (let i = 0; i < info.scores.length; i += 1) {
-    if (parseInt(info.scores[i], 10) === 1) {
-      colors.push('green');
-    } else if (parseInt(info.scores[i], 10) === 0) {
-      colors.push('red');
-    } else {
-      colors.push('black');
-    }
-  }
+  const colors = getColors(info.scores);
 
   if (info.special) {
     return (
