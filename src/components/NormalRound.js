@@ -7,97 +7,100 @@ import getColors from '../functions/getColors';
 const NormalRound = ({
   updater, info,
 }) => {
-  const colors = getColors(info.scores);
+  const {
+    answers, round, scores, special,
+  } = info;
+  const colors = getColors(scores);
 
-  if (info.special) {
+  if (special) {
     return (
       <div>
         <h4>
-          {`Round ${info.round}`}
+          {`Round ${round}`}
         </h4>
         <TwoPartQuestion
-          round={info.round}
+          round={round}
           number={1}
           color1={colors[0]}
-          answer1={info.answers[0]}
+          answer1={answers[0]}
           checked1={colors[0] === 'green' ? 'checked' : false}
           color2={colors[1]}
-          answer2={info.answers[1]}
+          answer2={answers[1]}
           checked2={colors[1] === 'green' ? 'checked' : false}
         />
         <TwoPartQuestion
-          round={info.round}
+          round={round}
           number={2}
           color1={colors[2]}
-          answer1={info.answers[2]}
+          answer1={answers[2]}
           checked1={colors[2] === 'green' ? 'checked' : false}
           color2={colors[3]}
-          answer2={info.answers[3]}
+          answer2={answers[3]}
           checked2={colors[3] === 'green' ? 'checked' : false}
         />
         <TwoPartQuestion
-          round={info.round}
+          round={round}
           number={3}
           color1={colors[4]}
-          answer1={info.answers[4]}
+          answer1={answers[4]}
           checked1={colors[4] === 'green' ? 'checked' : false}
           color2={colors[5]}
-          answer2={info.answers[5]}
+          answer2={answers[5]}
           checked2={colors[5] === 'green' ? 'checked' : false}
         />
         <TwoPartQuestion
-          round={info.round}
+          round={round}
           number={4}
           color1={colors[6]}
-          answer1={info.answers[6]}
+          answer1={answers[6]}
           checked1={colors[6] === 'green' ? 'checked' : false}
           color2={colors[7]}
-          answer2={info.answers[7]}
+          answer2={answers[7]}
           checked2={colors[7] === 'green' ? 'checked' : false}
         />
         <TwoPartQuestion
-          round={info.round}
+          round={round}
           number={5}
           color1={colors[8]}
-          answer1={info.answers[8]}
+          answer1={answers[8]}
           checked1={colors[8] === 'green' ? 'checked' : false}
           color2={colors[9]}
-          answer2={info.answers[9]}
+          answer2={answers[9]}
           checked2={colors[9] === 'green' ? 'checked' : false}
         />
         <TwoPartQuestion
-          round={info.round}
+          round={round}
           number={6}
           color1={colors[10]}
-          answer1={info.answers[10]}
+          answer1={answers[10]}
           checked1={colors[10] === 'green' ? 'checked' : false}
           color2={colors[11]}
-          answer2={info.answers[11]}
+          answer2={answers[11]}
           checked2={colors[11] === 'green' ? 'checked' : false}
         />
         <TwoPartQuestion
-          round={info.round}
+          round={round}
           number={7}
           color1={colors[12]}
-          answer1={info.answers[12]}
+          answer1={answers[12]}
           checked1={colors[12] === 'green' ? 'checked' : false}
           color2={colors[13]}
-          answer2={info.answers[13]}
+          answer2={answers[13]}
           checked2={colors[13] === 'green' ? 'checked' : false}
         />
         <TwoPartQuestion
-          round={info.round}
+          round={round}
           number={8}
           color1={colors[14]}
-          answer1={info.answers[14]}
+          answer1={answers[14]}
           checked1={colors[14] === 'green' ? 'checked' : false}
           color2={colors[15]}
-          answer2={info.answers[15]}
+          answer2={answers[15]}
           checked2={colors[15] === 'green' ? 'checked' : false}
         />
         <br />
-        <button value={info.round} onClick={updater} type="button">
-          {`CLICK TO UPDATE YOUR ROUND ${info.round} ANSWERS AND SCORE`}
+        <button value={round} onClick={updater} type="button">
+          {`CLICK TO UPDATE YOUR ROUND ${round} ANSWERS AND SCORE`}
         </button>
       </div>
     );
@@ -106,21 +109,21 @@ const NormalRound = ({
   return (
     <div>
       <h4>
-        {`Round ${info.round}`}
+        {`Round ${round}`}
       </h4>
       {colors.map((color, index) => (
         <Question
-          key={`r${info.round}q${index + 1}`}
-          round={info.round}
+          key={`r${round}q${index + 1}`}
+          round={round}
           thisColor={color}
           number={index + 1}
-          answer={info.answers[index]}
+          answer={answers[index]}
           checked={color === 'green' ? 'checked' : false}
         />
       ))}
       <br />
-      <button value={info.round} onClick={updater} type="button">
-        {`CLICK TO UPDATE YOUR ROUND ${info.round} ANSWERS AND SCORE`}
+      <button value={round} onClick={updater} type="button">
+        {`CLICK TO UPDATE YOUR ROUND ${round} ANSWERS AND SCORE`}
       </button>
     </div>
   );
