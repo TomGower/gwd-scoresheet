@@ -15,7 +15,7 @@ import checkSpecialRound from '../functions/checkSpecialRound';
 import handleClick from '../functions/handleClick';
 import pickJoker from '../functions/pickJoker';
 import updateScore from '../functions/updateScore';
-import GlobalStyle from './GlobalStyles';
+import GlobalStyle from './GlobalStyle';
 
 class App extends React.Component {
   constructor() {
