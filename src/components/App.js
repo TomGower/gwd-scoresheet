@@ -7,7 +7,6 @@ import Joker from './Joker';
 import SpecialRound from './SpecialRound';
 import NormalRound from './NormalRound';
 import MusicRound from './MusicRound';
-import RoundSix from './Round6';
 import RandomRound from './RandomRound';
 import BonusQuestions from './BonusQuestions';
 
@@ -61,6 +60,7 @@ class App extends React.Component {
       },
       r6info: {
         round: 6,
+        special: true,
         scores: Array(16).fill(null),
         answers: Array(16).fill(''),
         score: 0,
@@ -136,9 +136,10 @@ class App extends React.Component {
       );
     } else if (currentPage === 6) {
       currentRound = (
-        <RoundSix
+        <NormalRound
           updater={this.updateScore}
           info={r6info}
+          key="r6"
         />
       );
     } else if (currentPage === 7) {
