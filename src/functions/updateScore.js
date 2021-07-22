@@ -1,34 +1,27 @@
-/* eslint-disable react/no-access-state-in-setstate */
 function updateScore(event) {
   const round = event.target.value;
-  const answerBoxes = document.querySelectorAll(`input[id~='round${round}answer']`);
-  const answers = [];
-  answerBoxes.forEach((answer) => answers.push(answer.value));
-  const checkboxes = document.querySelectorAll(`input[id~='round${round}']`);
-  const check = [];
-  checkboxes.forEach((checkbox) => (checkbox.checked ? check.push(1) : check.push(0)));
-  const thisScore = check.reduce((acc, cur) => (acc + cur));
   const roundName = `r${round}info`;
+  const answerBoxes = Array.from(document.querySelectorAll(`input[id~='round${round}answer']`));
+  const answers = answerBoxes.map((answer) => answer.value);
+  const checkboxes = Array.from(document.querySelectorAll(`input[id~='round${round}']`));
+  const checkedBoxes = checkboxes.map((checkbox) => (checkbox.checked ? 1 : 0));
+  const newRoundScore = checkedBoxes.reduce((acc, cur) => (acc + cur), 0);
   const currentInfo = this.state[roundName];
-  const newTotal = this.state.score - currentInfo.score + thisScore;
-  currentInfo.score = thisScore;
+  const newTotalScore = this.state.score + newRoundScore
+    - currentInfo.score - this.state.jokerScore;
+  currentInfo.score = newRoundScore;
   currentInfo.answers = answers;
-  currentInfo.scores = check;
+  currentInfo.scores = checkedBoxes;
   if (`r${round}` === this.state.joker) {
     this.setState({
-      jokerScore: thisScore,
+      jokerScore: newRoundScore,
       [roundName]: currentInfo,
-    }, () => {
-      this.setState({
-        score: this.state.r1info.score + this.state.r2info.score + this.state.r3info.score
-        + this.state.r4info.score + this.state.r5info.score + this.state.r6info.score
-        + this.state.r7info.score + this.state.jokerScore,
-      });
+      score: newTotalScore + newRoundScore,
     });
   } else {
     this.setState({
       [roundName]: currentInfo,
-      score: newTotal,
+      score: newTotalScore,
     });
   }
 }
