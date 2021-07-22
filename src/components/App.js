@@ -1,21 +1,22 @@
-/* eslint-disable react/no-unused-state */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
-
 import styled from 'styled-components';
+
+import initialState from '../data/initialState';
+
+import GlobalStyle from './GlobalStyle';
 import Joker from './Joker';
 import SpecialRound from './SpecialRound';
 import NormalRound from './NormalRound';
 import MusicRound from './MusicRound';
 import RandomRound from './RandomRound';
+import RenderPageNumbers from './RenderPageNumbers';
 import BonusQuestions from './BonusQuestions';
 
 import checkSpecialRound from '../functions/checkSpecialRound';
 import handleClick from '../functions/handleClick';
 import pickJoker from '../functions/pickJoker';
 import updateScore from '../functions/updateScore';
-import GlobalStyle from './GlobalStyle';
-import initialState from '../data/initialState';
 
 class App extends React.Component {
   constructor() {
@@ -28,18 +29,6 @@ class App extends React.Component {
   }
 
   render() {
-    const pageNumbers = [1, 2, 3, 4, 5, 6, 7];
-
-    const renderPageNumbers = pageNumbers.map((number) => (
-      <PageNumber
-        key={number}
-        id={number}
-        onClick={this.handleClick}
-      >
-        {number}
-      </PageNumber>
-    ));
-
     const {
       currentPage, r1info, r2info, r3info, r4info, r5info, r6info, r7info, score,
     } = this.state;
@@ -113,9 +102,7 @@ class App extends React.Component {
         <SpecialRound checkSpecialRound={this.checkSpecialRound} />
         <Divider />
         {currentRound}
-        <PageNumbers>
-          {renderPageNumbers}
-        </PageNumbers>
+        <RenderPageNumbers handleClick={this.handleClick} />
         <Divider />
         <BonusQuestions />
         <GlobalStyle />
@@ -148,18 +135,6 @@ const Score = styled.div`
   margin-block-end: 1.25rem;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-`;
-
-const PageNumbers = styled.ul`
-  list-style: none;
-  display: flex;
-`;
-
-const PageNumber = styled.li`
-  margin-right: 0.5rem;
-  color: blue;
-  user-select: none;
-  cursor: pointer;
 `;
 
 export default App;
