@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Checkbox from './Checkbox';
 
 const Question = ({
   thisColor, round, answer, number, checked = false,
@@ -9,10 +10,7 @@ const Question = ({
     <QuestionLabel>{`Question ${number}`}</QuestionLabel>
     <AnswerName style={{ color: thisColor }}>{'Answer: '}</AnswerName>
     <Answer id={`round${round}answer q${number}`} defaultValue={answer} />
-    <label htmlFor={`question${number}`}>
-      <input type="checkbox" id={`round${round} question${number}`} defaultChecked={!!checked} />
-      Check if correct
-    </label>
+    <Checkbox round={round} number={number} isChecked={!!checked} />
   </Wrapper>
 );
 

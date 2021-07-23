@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Checkbox from './Checkbox';
 
 const MusicQuestion = ({
   titleColor, artistColor, titleAnswer, artistAnswer, titleChecked, artistChecked, number, round,
@@ -9,17 +10,11 @@ const MusicQuestion = ({
     <QuestionLabel>{`Question ${number}`}</QuestionLabel>
     <AnswerName style={{ color: titleColor }}>Title:</AnswerName>
     <Answer id={`round${round}answer q${number}a`} defaultValue={titleAnswer} />
-    <label htmlFor={`question${number}`}>
-      <input type="checkbox" id={`round${round} question${number}`} defaultChecked={!!titleChecked} />
-      Check if correct
-    </label>
+    <Checkbox number={number} round={round} isChecked={!!titleChecked} />
     <br />
     <AnswerName style={{ color: artistColor }}>Artist:</AnswerName>
     <Answer id={`round${round}answer q${number}b`} defaultValue={artistAnswer} />
-    <label htmlFor={`question${number}`}>
-      <input type="checkbox" id={`round${round} question${number}`} defaultChecked={!!artistChecked} />
-      Check if correct
-    </label>
+    <Checkbox number={number} round={round} isChecked={!!artistChecked} />
   </Wrapper>
 );
 
