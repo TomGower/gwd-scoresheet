@@ -74,6 +74,8 @@ const RenderCurrentRound = ({
   return null;
 };
 
+export default RenderCurrentRound;
+
 RenderCurrentRound.propTypes = {
   currentPage: PropTypes.number.isRequired,
   updateScore: PropTypes.func.isRequired,
@@ -85,5 +87,3 @@ RenderCurrentRound.propTypes = {
   r6info: PropTypes.shape(propertyTypes.roundInfo).isRequired,
   r7info: PropTypes.shape(propertyTypes.specialRoundInfo).isRequired,
 };
-
-export default RenderCurrentRound;

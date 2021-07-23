@@ -18,8 +18,8 @@ const Wrapper = styled.ul`
   display: flex;
 `;
 
+export default RenderPageNumbers;
+
 RenderPageNumbers.propTypes = {
   handleClick: PropTypes.func.isRequired,
 };
-
-export default RenderPageNumbers;

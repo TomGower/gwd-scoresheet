@@ -15,9 +15,9 @@ const Wrapper = styled.li`
   cursor: pointer;
 `;
 
+export default PageNumber;
+
 PageNumber.propTypes = {
   number: PropTypes.number.isRequired,
   handleClick: PropTypes.func.isRequired,
 };
-
-export default PageNumber;
