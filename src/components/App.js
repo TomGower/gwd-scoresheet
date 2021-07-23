@@ -4,14 +4,12 @@ import styled from 'styled-components';
 
 import initialState from '../data/initialState';
 
-import GlobalStyle from './GlobalStyle';
 import Joker from './Joker';
 import SpecialRound from './SpecialRound';
-import NormalRound from './NormalRound';
-import MusicRound from './MusicRound';
-import RandomRound from './RandomRound';
+import RenderCurrentRound from './RenderCurrentRound';
 import RenderPageNumbers from './RenderPageNumbers';
 import BonusQuestions from './BonusQuestions';
+import GlobalStyle from './GlobalStyle';
 
 import checkSpecialRound from '../functions/checkSpecialRound';
 import handleClick from '../functions/handleClick';
@@ -32,62 +30,6 @@ class App extends React.Component {
     const {
       currentPage, r1info, r2info, r3info, r4info, r5info, r6info, r7info, score,
     } = this.state;
-    let currentRound;
-    if (currentPage === 1) {
-      currentRound = (
-        <NormalRound
-          updater={this.updateScore}
-          info={r1info}
-          key="r1"
-        />
-      );
-    } else if (currentPage === 2) {
-      currentRound = (
-        <MusicRound
-          updater={this.updateScore}
-          info={r2info}
-        />
-      );
-    } else if (currentPage === 3) {
-      currentRound = (
-        <NormalRound
-          updater={this.updateScore}
-          info={r3info}
-          key="r3"
-        />
-      );
-    } else if (currentPage === 4) {
-      currentRound = (
-        <NormalRound
-          updater={this.updateScore}
-          info={r4info}
-          key="r4"
-        />
-      );
-    } else if (currentPage === 5) {
-      currentRound = (
-        <NormalRound
-          updater={this.updateScore}
-          info={r5info}
-          key="r5"
-        />
-      );
-    } else if (currentPage === 6) {
-      currentRound = (
-        <NormalRound
-          updater={this.updateScore}
-          info={r6info}
-          key="r6"
-        />
-      );
-    } else if (currentPage === 7) {
-      currentRound = (
-        <RandomRound
-          updater={this.updateScore}
-          info={r7info}
-        />
-      );
-    }
 
     return (
       <Wrapper>
@@ -101,7 +43,17 @@ class App extends React.Component {
         <Divider />
         <SpecialRound checkSpecialRound={this.checkSpecialRound} />
         <Divider />
-        {currentRound}
+        <RenderCurrentRound
+          currentPage={currentPage}
+          updateScore={this.updateScore}
+          r1info={r1info}
+          r2info={r2info}
+          r3info={r3info}
+          r4info={r4info}
+          r5info={r5info}
+          r6info={r6info}
+          r7info={r7info}
+        />
         <RenderPageNumbers handleClick={this.handleClick} />
         <Divider />
         <BonusQuestions />
