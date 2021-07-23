@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Question from './Question';
 import TwoPartQuestion from './TwoPartQuestion';
 import getColors from '../functions/getColors';
+import propertyTypes from '../data/propertyTypes';
 
 const NormalRound = ({
   updater, info,
@@ -132,12 +133,6 @@ const NormalRound = ({
 export default NormalRound;
 
 NormalRound.propTypes = {
-  info: PropTypes.shape({
-    round: PropTypes.number.isRequired,
-    special: PropTypes.bool.isRequired,
-    scores: PropTypes.arrayOf(PropTypes.number).isRequired,
-    answers: PropTypes.arrayOf(PropTypes.string).isRequired,
-    score: PropTypes.number.isRequired,
-  }).isRequired,
+  info: PropTypes.shape(propertyTypes.roundInfo).isRequired,
   updater: PropTypes.func.isRequired,
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MusicQuestion from './MusicQuestion';
 import getColors from '../functions/getColors';
+import propertyTypes from '../data/propertyTypes';
 
 const MusicRound = ({
   info, updater,
@@ -105,11 +106,6 @@ const MusicRound = ({
 export default MusicRound;
 
 MusicRound.propTypes = {
-  info: PropTypes.shape({
-    round: PropTypes.number.isRequired,
-    scores: PropTypes.arrayOf(PropTypes.number).isRequired,
-    answers: PropTypes.arrayOf(PropTypes.string).isRequired,
-    score: PropTypes.number.isRequired,
-  }).isRequired,
+  info: PropTypes.shape(propertyTypes.specialRoundInfo).isRequired,
   updater: PropTypes.func.isRequired,
 };

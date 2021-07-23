@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Question from './Question';
 import TwoPartQuestion from './TwoPartQuestion';
 import getColors from '../functions/getColors';
+import propertyTypes from '../data/propertyTypes';
 
 const RandomRound = ({
   updater, info,
@@ -162,11 +163,6 @@ const AnswerName = styled.span`
 export default RandomRound;
 
 RandomRound.propTypes = {
-  info: PropTypes.shape({
-    round: PropTypes.number.isRequired,
-    scores: PropTypes.arrayOf(PropTypes.number).isRequired,
-    answers: PropTypes.arrayOf(PropTypes.string).isRequired,
-    score: PropTypes.number.isRequired,
-  }).isRequired,
+  info: PropTypes.shape(propertyTypes.specialRoundInfo).isRequired,
   updater: PropTypes.func.isRequired,
 };
