@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import styled from 'styled-components';
 
@@ -8,7 +7,7 @@ import Joker from './Joker';
 import SpecialRound from './SpecialRound';
 import RenderCurrentRound from './RenderCurrentRound';
 import RenderPageNumbers from './RenderPageNumbers';
-import BonusQuestions from './BonusQuestions';
+import BonusRound from './BonusRound';
 import GlobalStyle from './GlobalStyle';
 
 import checkSpecialRound from '../functions/checkSpecialRound';
@@ -56,7 +55,7 @@ class App extends React.Component {
         />
         <RenderPageNumbers handleClick={this.handleClick} />
         <Divider />
-        <BonusQuestions />
+        <BonusRound />
         <GlobalStyle />
       </Wrapper>
     );
