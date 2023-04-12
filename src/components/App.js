@@ -19,6 +19,12 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = initialState;
+    // eslint-disable-next-line react/destructuring-assignment
+    this.score = this.state.r1info.score + this.state.r2info.score + this.state.r3info.score
+      // eslint-disable-next-line react/destructuring-assignment
+      + this.state.r4info.score + this.state.r5info.score + this.state.r6info.score
+      // eslint-disable-next-line react/destructuring-assignment
+      + this.state.r7info.score + this.state.jokerScore;
     this.updateScore = updateScore.bind(this);
     this.pickJoker = pickJoker.bind(this);
     this.handleClick = handleClick.bind(this);
@@ -27,7 +33,7 @@ class App extends React.Component {
 
   render() {
     const {
-      currentPage, r1info, r2info, r3info, r4info, r5info, r6info, r7info, score,
+      currentPage, r1info, r2info, r3info, r4info, r5info, r6info, r7info,
     } = this.state;
 
     return (
@@ -35,7 +41,7 @@ class App extends React.Component {
         <Header>GEEKS WHO DRINK Scoresheet</Header>
         <Divider />
         <Score>
-          {`Your Current Score is ${score}`}
+          {`Your Current Score is ${this.score}`}
         </Score>
         <Divider />
         <Joker pickJoker={this.pickJoker} />

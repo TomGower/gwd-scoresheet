@@ -7,8 +7,6 @@ function updateScore(event) {
   const checkedBoxes = checkboxes.map((checkbox) => (checkbox.checked ? 1 : 0));
   const newRoundScore = checkedBoxes.reduce((acc, cur) => (acc + cur), 0);
   const currentInfo = this.state[roundName];
-  const newTotalScore = this.state.score + newRoundScore
-    - currentInfo.score - this.state.jokerScore;
   currentInfo.score = newRoundScore;
   currentInfo.answers = answers;
   currentInfo.scores = checkedBoxes;
@@ -16,12 +14,10 @@ function updateScore(event) {
     this.setState({
       jokerScore: newRoundScore,
       [roundName]: currentInfo,
-      score: newTotalScore + newRoundScore,
     });
   } else {
     this.setState({
       [roundName]: currentInfo,
-      score: newTotalScore,
     });
   }
 }
