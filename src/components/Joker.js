@@ -14,18 +14,17 @@ const JokerInput = ({ round }) => (
 const rounds = [1, 2, 3, 4, 5, 6, 7];
 
 const Joker = ({ pickJoker }) => (
-  <Wrapper>
-    <Description>Pick which round you want to joker!</Description>
+  <Wrapper onSubmit={pickJoker}>
+    <Description>Pick which round you want to totally joker!</Description>
     <ButtonWrapper>
       {rounds.map((round) => <JokerInput round={round} key={round} />)}
     </ButtonWrapper>
-    <div>
-      <button type="submit" id="jokerButton" onClick={pickJoker}>Submit Joker Round Selection</button>
-    </div>
+    <button type="submit" id="jokerButton">Submit Joker Round Selection</button>
   </Wrapper>
 );
 
-const Wrapper = styled.div`
+// eslint-disable-next-line no-unused-vars
+const Wrapper = styled.form`
   padding-bottom: 0.5rem;
 `;
 

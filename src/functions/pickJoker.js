@@ -1,13 +1,14 @@
-function pickJoker() {
-  const jokerRound = (Array.from(document.querySelectorAll('input[name=\'joker\']')).find((round) => round.checked));
-  const roundName = `${jokerRound.value}info`;
-  const jokerScore = this.state[roundName].score;
+function pickJoker(e) {
+  e.preventDefault();
+  const form = e.target;
+  const formData = new FormData(form);
+  const formDataObject = Object.fromEntries(formData.entries());
+  const jokerRound = formDataObject.joker;
+  const jokerRoundName = `${jokerRound}info`;
+  const jokerScore = this.state[jokerRoundName].score;
   this.setState({
-    joker: jokerRound.value,
+    joker: jokerRound,
     jokerScore,
-    score: this.state.r1info.score + this.state.r2info.score + this.state.r3info.score
-    + this.state.r4info.score + this.state.r5info.score + this.state.r6info.score
-    + this.state.r7info.score + jokerScore,
   });
 }
 
