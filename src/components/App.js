@@ -20,11 +20,13 @@ class App extends React.Component {
     super();
     this.state = initialState;
     // eslint-disable-next-line react/destructuring-assignment
+    this.jokerScore = this.state.joker === '' ? 0 : this.state[`${this.state.joker}info`].score;
+    // eslint-disable-next-line react/destructuring-assignment
     this.score = this.state.r1info.score + this.state.r2info.score + this.state.r3info.score
       // eslint-disable-next-line react/destructuring-assignment
       + this.state.r4info.score + this.state.r5info.score + this.state.r6info.score
       // eslint-disable-next-line react/destructuring-assignment
-      + this.state.r7info.score + this.state.jokerScore;
+      + this.state.r7info.score + this.jokerScore;
     this.updateScore = updateScore.bind(this);
     this.pickJoker = pickJoker.bind(this);
     this.handleClick = handleClick.bind(this);

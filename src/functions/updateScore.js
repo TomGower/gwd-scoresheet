@@ -10,16 +10,9 @@ function updateScore(event) {
   currentInfo.score = newRoundScore;
   currentInfo.answers = answers;
   currentInfo.scores = checkedBoxes;
-  if (`r${round}` === this.state.joker) {
-    this.setState({
-      jokerScore: newRoundScore,
-      [roundName]: currentInfo,
-    });
-  } else {
-    this.setState({
-      [roundName]: currentInfo,
-    });
-  }
+  this.setState({
+    [roundName]: currentInfo,
+  });
 }
 
 export default updateScore;

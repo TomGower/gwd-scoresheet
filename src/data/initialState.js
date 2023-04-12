@@ -1,8 +1,6 @@
 const initialState = {
   currentPage: 1,
-  score: 0,
   joker: '',
-  jokerScore: 0,
   r1info: {
     round: 1,
     special: false,
