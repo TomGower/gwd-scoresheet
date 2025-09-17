@@ -1,4 +1,4 @@
-import React from 'react';
+
 import PropTypes from 'prop-types';
 import Question from './Question';
 import TwoPartQuestion from './TwoPartQuestion';

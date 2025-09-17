@@ -1,4 +1,4 @@
-import React from 'react';
+
 import PropTypes from 'prop-types';
 import MusicQuestion from './MusicQuestion';
 import getColors from '../functions/getColors';
