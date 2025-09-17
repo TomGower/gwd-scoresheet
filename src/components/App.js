@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import styled from 'styled-components';
 
 import initialState from '../data/initialState';
@@ -15,7 +15,7 @@ import handleClick from '../functions/handleClick';
 import pickJoker from '../functions/pickJoker';
 import updateScore from '../functions/updateScore';
 
-class App extends React.Component {
+class App extends Component {
   constructor() {
     super();
     this.state = initialState;
