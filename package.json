@@ -24,8 +24,8 @@
   },
   "homepage": "https://github.com/TomGower/gwd-scoresheet#readme",
   "dependencies": {
-    "body-parser": "^1.20.1",
-    "express": "^4.21.2",
+    "body-parser": "^1.20.4",
+    "express": "^4.22.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
